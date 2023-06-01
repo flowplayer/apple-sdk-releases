@@ -1,0 +1,61 @@
+//
+//  PlayController.swift
+//  iOS Example
+//
+//  Created by @rashadatjou on 13/06/2023.
+//  Copyright © 2023 Wowza. All rights reserved.
+//
+
+import FlowplayerSDK
+import UIKit
+
+class PlayController: UIViewController {
+  // - IBOutlets
+  @IBOutlet var playerView: FlowplayerView!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var descriptionLabel: UILabel!
+
+  // - Props
+  var video: Video?
+
+  // - Lifecycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    titleLabel.text = video?.title
+    descriptionLabel.text = video?.description
+
+    playerView.autoPlay = true
+    playerView.viewDelegate = self
+    playerView.delegate = self
+
+    if let ovpMedia = video?.media as? MediaOVP {
+      playerView.load(ovp: ovpMedia)
+    }
+
+    if let externalMedia = video?.media as? MediaExternal {
+      playerView.load(external: externalMedia)
+    }
+  }
+
+  deinit {
+    // IMPORTANT: Destroy player on deinit
+    playerView.stop()
+  }
+}
+
+// MARK: - FlowplayerViewDelegate
+
+extension PlayController: FlowplayerViewDelegate {
+  func view(_ view: FlowplayerViewAPI, didChangeViewVisibility isVisible: Bool) {
+    print("Flowplayer became visible:", isVisible)
+  }
+}
+
+// MARK: - FlowplayerDelegate
+
+extension PlayController: FlowplayerDelegate {
+  func player(_ player: FlowplayerAPI, didChangeState state: PlayerState) {
+    print("Player did change the state:", state)
+  }
+}
