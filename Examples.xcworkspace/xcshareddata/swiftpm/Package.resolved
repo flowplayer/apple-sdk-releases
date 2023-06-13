@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swift-google-ima-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rashadatjou/swift-google-ima-spm",
+      "state" : {
+        "revision" : "38bf7bf92c18d436d0d542c1abbd68ac3e90a68e",
+        "version" : "1.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
