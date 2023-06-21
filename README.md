@@ -1,6 +1,6 @@
-# Wowza Flowplayer iOS and tvOS SDKs
+# Wowza Flowplayer Apple SDKs
 
-The Wowza Flowplayer iOS SDK provides a framework to integrate video playback and advertisement capabilities into your iOS and tvOS applications. With this SDK, you can take advantage of a comprehensive set of features and functionalities that enhance the video playback experience for your users.
+The Wowza Flowplayer Apple SDK provides a framework to integrate video playback and advertisement capabilities into your iOS and tvOS applications. With this SDK, you can take advantage of a comprehensive set of features and functionalities that enhance the video playback experience for your users.
 
 For more, get started with our official Apple SDK documentation:
 
@@ -17,13 +17,13 @@ Before you start with the latest version of the Wowza Flowplayer iOS and tvOS SD
 | **Dependencies and versions** | Google IMA SDK iOS 3.8.5 (exact version) <br/> Google IMA SDK tvOS 4.19.1 (exact version) |
 | **Software requirements** | [Xcode 14.2](https://developer.apple.com/download/all/?q=xcode%2014.2) (includes Swift 5.7) <br /> [Git](https://git-scm.com/downloads) <br/> [Flowplayer OVP](https://app.flowplayer.com/) <br /> [Wowza Video](https://auth.wowza.com/login?onsuccess=https://video.wowza.com/en/manage) |
 
-## Add the iOS SDK to your project
+## Add the SDK to your project
 
-Once you've met all prerequisites, you can add the Wowza Flowplayer iOS SDK to your project and start developing. Install the SDK using the methods described in this section. The compiled framework and our example applications are available in this repository.
+Once you've met all prerequisites, you can add the Wowza Flowplayer Apple SDK to your project and start developing. Install the SDK using the methods described in this section. The compiled framework and our example applications are available in this repository.
 
 ### Swift Package Manager
 
-You can integrate the Wowza Flowplayer iOS SDK from Xcode using Swift Package Manager. To accomplish this task in Xcode, you need a personal access token in GitHub. You should also add your GitHub source control account from the Xcode menu, under **Settings > Accounts**.
+You can integrate the Wowza Flowplayer Apple SDK from Xcode using Swift Package Manager. To accomplish this task in Xcode, you need a personal access token in GitHub. You should also add your GitHub source control account from the Xcode menu, under **Settings > Accounts**.
 
 1. With your Xcode project open, go to **File > Add Packages**.
 2. Select **GitHub** from **Source Control Accounts**.
@@ -43,7 +43,9 @@ You can integrate the Wowza Flowplayer iOS SDK from Xcode using Swift Package Ma
 
 You can also use the [CocoaPods](https://guides.cocoapods.org/) dependency manager to integrate the SDK into your projects. To use this approach, follow these steps.
 
-1. Add the **FlowplayerSDK** framework to your Podfile:
+1. Add the **FlowplayerSDK** framework to your Podfile.
+
+    For iOS:
 
     ```ruby
     platform :ios, '14.0'
@@ -51,6 +53,17 @@ You can also use the [CocoaPods](https://guides.cocoapods.org/) dependency manag
 
     target 'YourApp' do
       pod 'FlowplayerSDK', '~> 4.0.0'
+    end
+    ```
+
+    For tvOS:
+
+    ```ruby
+    platform :tvos, '14.0'
+    use_frameworks!
+
+    target 'YourApp' do
+        pod 'FlowplayerSDK', '~> 4.0.0'
     end
     ```
 
@@ -66,7 +79,7 @@ You can also use the [CocoaPods](https://guides.cocoapods.org/) dependency manag
 
 If you prefer a more manual approach to add the SDK to your projects, see [Manual installation](https://developer.wowza.com/docs/wowza-flowplayer/sdks/apple/ios/getting-started/#manual-installation).
 
-## Running Examples
+## Running examples
 
 This repository includes example projects for [iOS](https://github.com/flowplayer/apple-sdk-releases/tree/main/iOS%20Example) and [tvOS](https://github.com/flowplayer/apple-sdk-releases/tree/main/tvOS%20Example). You can explore these examples and integrate them into your own work.
 

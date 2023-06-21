@@ -1,14 +1,16 @@
-# Migration Guide
+# Migration guide
 
 ## 1. Introduction
 
-- Purpose of the migration document:
+This guide serves as a comprehensive resource for migrating existing projects that currently utilize our legacy iOS and tvOS SDKs to our new multi-platform Wowza Flowplayer iOS and tvOS SDKs. You can find step-by-step instructions and explanations to ensure a smooth and successful migration.
 
-  This guide serves as a comprehensive resource for migrating existing projects that currently utilize the Legacy Flowplayer iOS Framework or the Legacy Flowplayer tvOS Framework to our new Multiplatform Flowplayer SDK. It provides step-by-step instructions and explanations to ensure a smooth and successful migration.
+Migrating to the new Wowza Flowplayer Apple SDKs offers several significant advantages:
 
-- Benefits of migrating to the new version:
+- The SDK has been optimized to be four times lighter, resulting in reduced resource consumption within your application.
+- The new SDK exposes a much richer API, providing developers with greater flexibility and control over the Wowza Flowplayer integration.
+- The latest SDK incorporates numerous enhancements and new functionalities, making it superior to its predecessors in every aspect.
 
-  Migrating to the new Flowplayer SDK offers several significant advantages. Firstly, the SDK has been optimized to be four times lighter, resulting in reduced resource consumption within your application. Additionally, the new SDK exposes a much richer API, providing developers with greater flexibility and control over the Flowplayer integration. Moreover, the latest SDK incorporates numerous enhancements and new functionalities, making it superior to its predecessors in every aspect. By migrating, you can take advantage of these improvements and deliver an even better video playback experience to your users.
+By migrating, you can take advantage of these improvements and deliver an even better video playback experience to your users.
 
 ## 2. Prerequisites
 
@@ -18,36 +20,43 @@
 | **Dependencies and versions**   | Google IMA SDK iOS 3.8.5 (exact version) <br/> Google IMA SDK tvOS 4.19.1 (exact version)                                                                                                                                                                                                  |
 | **Software requirements**       | [Xcode 14.2](https://developer.apple.com/download/all/?q=xcode%2014.2) (includes Swift 5.7) <br /> [Git](https://git-scm.com/downloads) <br/> [Flowplayer OVP](https://app.flowplayer.com/) <br /> [Wowza Video](https://auth.wowza.com/login?onsuccess=https://video.wowza.com/en/manage) |
 
-## 3. Migration Process
+## 3. Migration process
 
-### Stage 1: Pre-Migration Tasks
+### Pre-migration tasks
 
-#### - Check compatibility with existing setup:
+#### Check compatibility with existing setup
 
-Ensure that the minimum deployment version of your iOS and tvOS app is set to `14.0` or use version conditionals in your code where needed. This is the minimum version supported by the new Flowplayer SDK. Adjusting the deployment version will ensure that your application can effectively utilize the features and functionalities offered by the OS.
+Ensure that the minimum deployment version of your iOS and tvOS app is set to `14.0` or use version conditionals in your code where needed. This is the minimum version supported by the new Wowza Flowplayer Apple SDK. Adjusting the deployment version ensures that your application can effectively utilize the features and functionalities offered by the OS.
 
-#### - Evaluate any additional requirements:
+#### Evaluate any additional requirements
 
-An important step is to remove the legacy frameworks from CocoaPods if it was previously installed through that dependency manager. You can do this by updating your project's Podfile and removing any references to the old Flowplayer frameworks. Similarly, if the legacy Flowplayer framework was manually installed, ensure that you remove it from your project's frameworks. Do not delete any of the code as we are going to needed it later.
+An important step is to remove the legacy frameworks from CocoaPods if it was previously installed through that dependency manager. You can do this by updating your project's Podfile and removing any references to the old Flowplayer frameworks.
 
-### Stage 2: Installation/Setup
+Similarly, if the legacy Flowplayer framework was manually installed, remove it from your project's frameworks. Do not delete any of the code as we're going to need it later.
 
-Downloading the new version of the SDK by following our docs [here](https://example.com)
+### Installation and setup
 
-### Stage 3: Module changes
+Download [the new Apple SDKs](https://github.com/flowplayer/apple-sdk-releases/blob/main/README.md#add-the-sdk-to-your-project). To get started with our official Wowza Flowplayer Apple SDK documentation, see these links:
+
+- [Wowza Flowplayer iOS SDK](https://developer.wowza.com/docs/wowza-flowplayer/sdks/apple/ios/getting-started/#about-wowza-flowplayer-ios-sdk) documentation
+- [Wowza Flowplayer tvOS SDK](https://developer.wowza.com/docs/wowza-flowplayer/sdks/apple/tvos/getting-started/#about-wowza-flowplayer-tvos-sdk) documentation
+
+### Module changes
 
 1. Please remove all references to `import FlowplayerCore` from your project.
-2. Please rename all references from `import Flowplayer` -> `import FlowplayerSDK`
-3. Consuming events from the player instance is now handled by 3 different delegates
-   1. `FlowplayerDelegate`: Responsible for all player related events.
-   2. `FlowplayerAdDelegate`: Responsible for all ad related events.
-   3. `FlowplayerViewDelegate`: Responsible for all view related events (iOS only).
-4. We added also support `NotificationCenter` and you can find the list of all events [here](https://example.xom).
+2. Please rename all references from `import Flowplayer` -> `import FlowplayerSDK`.
+3. Consuming events from the player instance is now handled by three different delegates:
+
+- `FlowplayerDelegate`: Responsible for all player related events.
+- `FlowplayerAdDelegate`: Responsible for all ad related events.
+- `FlowplayerViewDelegate`: Responsible for all view related events (iOS only).
+
+4\. We also added support for `NotificationCenter`. You can find the list of all events [here](https://example.com).
 
 ## 4. FlowplayerSDK for iOS key changes
 
-- `FPFlowplayerViewController: UIViewController` has been completely removed and has been replaced with a much lighter `FlowplayerView: UIVew`.
-- To learn more about `FlowplayerView` please visit our docs [here](https://example.com).
+- `FPFlowplayerViewController: UIViewController` was completely removed and replaced with a much lighter `FlowplayerView: UIVew`.
+- To learn more about `FlowplayerView`, see [our documentation](https://example.com).
 
 **[Legacy] FPFlowplayerViewController example code**
 
@@ -113,8 +122,8 @@ class MyViewController: UIViewController, FlowplayerViewDelegate, FlowplayerDele
 
 ## 5. FlowplayerSDK for tvOS key changes
 
-- `FPFlowplayer` has been removed and replaced with a much more roboust `FlowplayerManager`. The behavour of both classes is identical and wont require much change.
-- To learn more about `FlowplayerManager` please visit the docs [here](https://example.com).
+- `FPFlowplayer` was removed and replaced with a much more roboust `FlowplayerManager`. The behavour of both classes is identical and doesn't require much change.
+- To learn more about `FlowplayerManager`, see [our documentation](https://example.com).
 
 **[Legacy] FPFlowplayer example code**
 
@@ -180,7 +189,9 @@ class MyViewController: UIViewController, FlowplayerDelegate, FlowplayerAdDelega
 }
 ```
 
-## 6. Additional Resources
+## 6. Additional resources
 
-- Visit our docs for a more details [here](https://example.com)
-- Please contact mehdi[.]rashadatjou[@]wowza[.]com for any assistance
+- Visit our official [Wowza Flowplayer iOS SDK](https://developer.wowza.com/docs/wowza-flowplayer/sdks/apple/ios/getting-started/#about-wowza-flowplayer-ios-sdk) documentation.
+- Visit our official [Wowza Flowplayer tvOS SDK](https://developer.wowza.com/docs/wowza-flowplayer/sdks/apple/tvos/getting-started/#about-wowza-flowplayer-tvos-sdk) documentation.
+
+For assistance with the Wowza Flowplayer Apple SDK, please contact <mehdi.rashadatjou@wowza.com>.
