@@ -24,10 +24,9 @@ class PlayController: UIViewController {
     titleLabel.text = video?.title
     descriptionLabel.text = video?.description
 
-    playerView.viewDelegate = self
     playerView.autoPlay = true
-    playerView.delegate = self
     playerView.viewDelegate = self
+    playerView.delegate = self
 
     if let ovpMedia = video?.media as? MediaOVP {
       playerView.load(ovp: ovpMedia)
