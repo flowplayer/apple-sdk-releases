@@ -34,10 +34,15 @@ An important step is to remove the legacy frameworks from CocoaPods if it was pr
 
 Downloading the new version of the SDK by following our docs [here](https://example.com)
 
-### Stage 3: Import module changes
+### Stage 3: Module changes
 
 1. Please remove all references to `import FlowplayerCore` from your project.
 2. Please rename all references from `import Flowplayer` -> `import FlowplayerSDK`
+3. Consuming events from the player instance is now handled by 3 different delegates
+   1. `FlowplayerDelegate`: Responsible for all player related events.
+   2. `FlowplayerAdDelegate`: Responsible for all ad related events.
+   3. `FlowplayerViewDelegate`: Responsible for all view related events (iOS only).
+4. We added also support `NotificationCenter` and you can find the list of all events [here](https://example.xom).
 
 ## 4. FlowplayerSDK for iOS key changes
 
@@ -177,5 +182,5 @@ class MyViewController: UIViewController, FlowplayerDelegate, FlowplayerAdDelega
 
 ## 6. Additional Resources
 
-- Visit our docs for a more details [here].(https://example.com)
+- Visit our docs for a more details [here](https://example.com)
 - Please contact mehdi[.]rashadatjou[@]wowza[.]com for any assistance
