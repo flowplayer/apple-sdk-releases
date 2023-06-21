@@ -14,7 +14,7 @@ Before you start with the latest version of the Wowza Flowplayer iOS and tvOS SD
 | Requirement | Version information |
 | :---- | :---- |
 | **Minimum system requirements** | Swift 5.7 <br/> macOS 13.0 |
-| **Dependencies and versions** | Google IMA SDK iOS 3.8.5 (exact version) <br/> Google IMA SDK tvOS 4.8.2 (exact version) |
+| **Dependencies and versions** | Google IMA SDK iOS 3.8.5 (exact version) <br/> Google IMA SDK tvOS 4.19.1 (exact version) |
 | **Software requirements** | [Xcode 14.2](https://developer.apple.com/download/all/?q=xcode%2014.2) (includes Swift 5.7) <br /> [Git](https://git-scm.com/downloads) <br/> [Flowplayer OVP](https://app.flowplayer.com/) <br /> [Wowza Video](https://auth.wowza.com/login?onsuccess=https://video.wowza.com/en/manage) |
 
 ## Add the iOS SDK to your project
@@ -46,11 +46,11 @@ You can also use the [CocoaPods](https://guides.cocoapods.org/) dependency manag
 1. Add the **FlowplayerSDK** framework to your Podfile:
 
     ```ruby
-    platform :ios, '13.0'
+    platform :ios, '14.0'
     use_frameworks!
 
     target 'YourApp' do
-      pod 'FlowplayerSDK', '~> 1.0.0'
+      pod 'FlowplayerSDK', '~> 4.0.0'
     end
     ```
 
