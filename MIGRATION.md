@@ -119,17 +119,18 @@ import UIKit
 
 class MyViewController: UIViewController {
 
-	// - Props
-	private var flowplayer: FPFlowplayer!
-	private let player = AVPlayer()
-	private let playerController = AVPlayerViewController()
+  // - Props
+  private var flowplayer: FPFlowplayer!
+  private let player = AVPlayer()
+  private let playerController = AVPlayerViewController()
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		playerController.player = player
-		flowplayer = FPFlowplayer(player: player, controller: playerController)
-		flowplayer.delegate = self
-	}
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    playerController.player = player
+    flowplayer = FPFlowplayer(player: player, controller: playerController)
+    flowplayer.delegate = self
+  }
+
 }
 ```
 
