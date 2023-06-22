@@ -83,7 +83,7 @@ If you prefer a more manual approach to add the SDK to your projects, see [Manua
 
 This repository includes example projects for [iOS](https://github.com/flowplayer/apple-sdk-releases/tree/main/iOS%20Example) and [tvOS](https://github.com/flowplayer/apple-sdk-releases/tree/main/tvOS%20Example). You can explore these examples and integrate them into your own work.
 
-To run the example apps included in this repository, you need an access token from Wowza Flowplayer or Wowza Video. This token allows the player to display content in your iOS or tvOS application. You can update your target's **Info.plist** file  with this token. You can also accomplish the same goal by setting the [FlowplayerSDK.current.accessToken](https://github.com/flowplayer/apple-sdk-releases/blob/main/iOS%20Example/Sources/App/AppDelegate.swift) property in the example app configurations.
+To run the example apps in this repository, you need an access token from Wowza Flowplayer or Wowza Video. This token allows the player to display content in your iOS or tvOS application. You can update your target's **Info.plist** file  with this token. You can also accomplish the same goal by setting the [Flowplayer.current.accessToken](https://github.com/flowplayer/apple-sdk-releases/blob/main/iOS%20Example/Sources/App/AppDelegate.swift) property in the example app configurations.
 
 ## Contributing
 
