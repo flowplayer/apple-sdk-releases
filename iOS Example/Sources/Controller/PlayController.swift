@@ -47,7 +47,7 @@ class PlayController: UIViewController {
 // MARK: - FlowplayerViewDelegate
 
 extension PlayController: FlowplayerViewDelegate {
-  func view(_ view: FlowplayerViewAPI, didChangeViewVibility isVisible: Bool) {
+  func view(_ view: FlowplayerViewAPI, didChangeViewVisibility isVisible: Bool) {
     print("Flowplayer became visible:", isVisible)
   }
 }

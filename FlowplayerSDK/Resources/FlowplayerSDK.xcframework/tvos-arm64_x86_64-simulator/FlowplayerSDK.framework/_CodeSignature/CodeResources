@@ -10,51 +10,51 @@
 		</data>
 		<key>Headers/FlowplayerSDK.h</key>
 		<data>
-		rteae57L14NadIpfAvpKqX2kyq8=
+		RkbguiDQvmhoNidrc/9hItQJlxM=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		oC+XIxprPdMaEjV1+BP6U656RpI=
+		rGvLL8zArgeyJlNeu/uM0F/3ms8=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		S5exBJnj1q8s3S4J8c29ynlOtcQ=
+		Yjqn0YfH7A5M6zmNZ2JrE5qyTns=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		oTgIW/tzoYFYvMqVd5e46o5BcIA=
+		vKbA7ZExfuKwCQVGqqQmAe2dKhQ=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		VXDIvMOs+xY6Hv1GtxI5IS/Ia8A=
+		zBf2qX8VHA7+PJ2tFm1tb71UEOc=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		oTgIW/tzoYFYvMqVd5e46o5BcIA=
+		vKbA7ZExfuKwCQVGqqQmAe2dKhQ=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		Z9r/2xSPNPRqWqY4xIb+f5ssuJA=
+		GUXl65zFb/UU5TpJCBgRBGYUuhE=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		S5exBJnj1q8s3S4J8c29ynlOtcQ=
+		Yjqn0YfH7A5M6zmNZ2JrE5qyTns=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		Y8UohBB4Y7vo8HMfDKK+g32Ajfg=
+		X353XcdbvLvpY3BGg2nIIu+rJEo=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		cUBb1WmDFmJ3b2SQyDaYb8hjfPA=
+		7UV8WKpCQwg7GtJIUZEp+mE4/vE=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		Y8UohBB4Y7vo8HMfDKK+g32Ajfg=
+		X353XcdbvLvpY3BGg2nIIu+rJEo=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		2ZMV5Z7u6eRrZpGp/O4IU4qaI1M=
+		cCHhqEzNxGr6WnNyctu1NQy7L/I=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -74,77 +74,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			L4rQ7+zSW8fXMtBBpbX4BkSB23AEVEsG3HGqlOu+PD0=
+			YjmHS4vRLaTe/NS9G43A08qnAQNYzIlhRqjg6H0Nj6A=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TpHJ8/k1DL8ijHWVlT07bgFNeC9cLXXzSZ5w4X9mxec=
+			QaK1tqzmSpTI925xh+SrKGwTU/9zUux3O7/FJWuXPrU=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			T43EzaikM5FEHtSSFdePhqzocZbVzKB9IJ8DsRTOw6E=
+			WGI2rGYRB1Riu1qUktFT03JltiFp1Hr5OC714XKrq54=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RK4M8xWTcwlzy1Deh5DuOqmWljp4sCIWHscReV0KZPk=
+			niHnYYSdkhfcucCFzbSh9f40KOLOy/A04sCX42n4bfo=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			T43EzaikM5FEHtSSFdePhqzocZbVzKB9IJ8DsRTOw6E=
+			WGI2rGYRB1Riu1qUktFT03JltiFp1Hr5OC714XKrq54=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h1uVH0gGN0Uba0XAYzyXatB5onF+3M8oWi7aXf1Ogss=
+			+N3dFMR06oTEYqTXHyCDJmoV6JPqyTYY82x9HL565mg=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TpHJ8/k1DL8ijHWVlT07bgFNeC9cLXXzSZ5w4X9mxec=
+			QaK1tqzmSpTI925xh+SrKGwTU/9zUux3O7/FJWuXPrU=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lIPmflHQdlR/qZeXG4vsDsGylKepaxvxMFJtP7WSJJM=
+			O8w8qJuWttVBqf+MRats3HZ2dYtaRwyH9emISw20M8s=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RVxlHDotBAxnAfYnCokTbnHruF6lrC6TEjRWebUZj1I=
+			Xlu6s3idTl2igHpXTsbNQtuONxzyoCmUbchfOF0hN2s=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lIPmflHQdlR/qZeXG4vsDsGylKepaxvxMFJtP7WSJJM=
+			O8w8qJuWttVBqf+MRats3HZ2dYtaRwyH9emISw20M8s=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KfwYM1JZTw8zd/YvrW1wGbQkxR8/XZp/u3TIukvp1lA=
+			vT1YikYy5YTNeMFy/ioapgk4NUxhExwnVSq9gZrJ9FQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

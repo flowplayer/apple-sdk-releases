@@ -6,55 +6,55 @@
 	<dict>
 		<key>Headers/FlowplayerSDK-Swift.h</key>
 		<data>
-		qnGxKJoEVaAhzVDsdkUInq4OU9U=
+		iUr56dk1+JwjkNvz4kJoYTjaTxU=
 		</data>
 		<key>Headers/FlowplayerSDK.h</key>
 		<data>
-		rteae57L14NadIpfAvpKqX2kyq8=
+		RkbguiDQvmhoNidrc/9hItQJlxM=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		XVf3Q/bEvC4KCvBTNpnKduQ4+dU=
+		ShddnTS68bxtFCaWR0XbEB4tI5Y=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		WlbLY/O3BvqV3bidtP5q6469dyQ=
+		aoGjgn2ZEreNjO7NQIBCvkws/oY=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ouDrbtWKBptTEClfcfW5YZrKzGA=
+		VkYJvE2ZtAK0l4RMwjK+Sj61IyQ=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		L6ShQGL1zzz8SiKAHr5ORS6Dqyo=
+		fxwscGKQYGbseuJ2pBxrOgj8ZXs=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ouDrbtWKBptTEClfcfW5YZrKzGA=
+		VkYJvE2ZtAK0l4RMwjK+Sj61IyQ=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ELL5mlv08Y1ov+3zJ031u4HfXtk=
+		NlLr2YpFXhbP7vTbloTlHmhnF08=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		WlbLY/O3BvqV3bidtP5q6469dyQ=
+		aoGjgn2ZEreNjO7NQIBCvkws/oY=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		aMusyDjHAVsMTGpbHdwC6cI/zz0=
+		+wxHx6wxWUjv5LCf1IeiDJZDWBs=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		kuLU98bjj9XTINNXybHU1EDdm0k=
+		3nPkZYfOtCo4S8YAQbQnTyHFwxs=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		aMusyDjHAVsMTGpbHdwC6cI/zz0=
+		+wxHx6wxWUjv5LCf1IeiDJZDWBs=
 		</data>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		9IB0m9ZewhIRQIzbPR5w96FGlj4=
+		lNrzC4K08Up7baTvquFYxxe4qWg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,84 +67,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yWJbP05+ZIFylo9KW+BPX/EMWJGeDOUlVRXn/8yjY2w=
+			qh7kcnpu/uRSJzH8MRmq6gRnPoXEjTuAuJQc5aw+vw4=
 			</data>
 		</dict>
 		<key>Headers/FlowplayerSDK.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			L4rQ7+zSW8fXMtBBpbX4BkSB23AEVEsG3HGqlOu+PD0=
+			YjmHS4vRLaTe/NS9G43A08qnAQNYzIlhRqjg6H0Nj6A=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hmSVRPhgtpz6fZyyXZvWHnkOha9fChAK7LsR4LJ+jr4=
+			/IoGDQ5Fp/OX2dNaNy65BsheH3iuu7pxI+waZqj9r4g=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FrQ7nN4uP6ixhFQjUp4cfd+nzRRoj9AurVlJ8FwHctY=
+			XMIcWrD+4IqQajr4INVBjcP6wWwvsc0BlELic4N0jS8=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pAualao5UIGmiiWAWuLYQ5suzgAD9p1/T8xrjP2O5/s=
+			W1FY0tslZ0fdEmqmrWNdmn/1jqwq5o5sZ8UGCn7ZKlE=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FrQ7nN4uP6ixhFQjUp4cfd+nzRRoj9AurVlJ8FwHctY=
+			XMIcWrD+4IqQajr4INVBjcP6wWwvsc0BlELic4N0jS8=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			T90HyvXtvB9JR6Si9KOQR9/OLOUXpTyKFKCGpTVxJ5I=
+			puH/SRAsMBnijpQdqR2ntj+UusWNVpiFt7YQjjqTSZI=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hmSVRPhgtpz6fZyyXZvWHnkOha9fChAK7LsR4LJ+jr4=
+			/IoGDQ5Fp/OX2dNaNy65BsheH3iuu7pxI+waZqj9r4g=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Izqo6tEJ+zaGtdDgqPLX1Wff/0xyzLC5HIqs6EcKv5o=
+			oCSE6B6O6gzftWghz4jIweIocpPm2NqvT6PALeyDesI=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LYxT6zw2r5g7PpL/XKhaOXwQuLVlpOGaouF/8nmPcrY=
+			T1LatcpMdCAtiKCLUjgGnb7HnE+teneVhx5sNNIahfA=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Izqo6tEJ+zaGtdDgqPLX1Wff/0xyzLC5HIqs6EcKv5o=
+			oCSE6B6O6gzftWghz4jIweIocpPm2NqvT6PALeyDesI=
 			</data>
 		</dict>
 		<key>Modules/FlowplayerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			W6VGMTbhML/IuUWlUsfi9DhaFxKERRqAVKCOHQzN1wA=
+			HlnwqzjnfMAUFSb/Sfm9Obiqt/HEYYHMRPUir9rTFKk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

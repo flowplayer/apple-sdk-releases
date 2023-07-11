@@ -25,9 +25,16 @@ import _StringProcessing
 extension FlowplayerSDK.Flowplayer {
   public func configure()
 }
+public struct DVRWindow {
+  public let start: Swift.Double
+  public let end: Swift.Double
+  public var availableLength: Swift.Double {
+    get
+  }
+}
 extension Foundation.NSNotification.Name {
   public static let flowplayerViewDidChangeLifecycle: Foundation.Notification.Name
-  public static let flowplayerViewDidChageFullscreen: Foundation.Notification.Name
+  public static let flowplayerViewDidChangeFullscreen: Foundation.Notification.Name
   public static let flowplayerViewDidEncounterError: Foundation.Notification.Name
   public static let flowplayerViewDidChangeVisibility: Foundation.Notification.Name
   public static let flowplayerViewDidChangeControlsVisibility: Foundation.Notification.Name
@@ -73,11 +80,12 @@ public enum ViewLifecycle : Swift.Int {
   public static func create() -> FlowplayerSDK.ControlsConfig.Builder
   @objc deinit
 }
-public enum SeekState {
+public enum PlaybackSeekState {
   case idle
   case seeking
   case seeked
-  public static func == (a: FlowplayerSDK.SeekState, b: FlowplayerSDK.SeekState) -> Swift.Bool
+  case failed
+  public static func == (a: FlowplayerSDK.PlaybackSeekState, b: FlowplayerSDK.PlaybackSeekState) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
@@ -100,18 +108,19 @@ public protocol FlowplayerViewDelegate : AnyObject {
   func view(_ view: any FlowplayerSDK.FlowplayerViewAPI, didChangeFullscreen isFullscreen: Swift.Bool)
   func view(_ view: any FlowplayerSDK.FlowplayerViewAPI, didChangeControlsVisibility isVisible: Swift.Bool)
   func view(_ view: any FlowplayerSDK.FlowplayerViewAPI, didEncounterError error: (any Swift.Error)?)
-  func view(_ view: any FlowplayerSDK.FlowplayerViewAPI, didChangeViewVibility isVisible: Swift.Bool)
+  func view(_ view: any FlowplayerSDK.FlowplayerViewAPI, didChangeViewVisibility isVisible: Swift.Bool)
   func view(_ view: any FlowplayerSDK.FlowplayerViewAPI, didChangeLifecycle lifecycle: FlowplayerSDK.ViewLifecycle)
 }
 extension FlowplayerSDK.FlowplayerViewDelegate {
   public func view(_: any FlowplayerSDK.FlowplayerViewAPI, didChangeFullscreen _: Swift.Bool)
   public func view(_: any FlowplayerSDK.FlowplayerViewAPI, didChangeControlsVisibility _: Swift.Bool)
   public func view(_: any FlowplayerSDK.FlowplayerViewAPI, didEncounterError _: (any Swift.Error)?)
-  public func view(_: any FlowplayerSDK.FlowplayerViewAPI, didChangeViewVibility _: Swift.Bool)
+  public func view(_: any FlowplayerSDK.FlowplayerViewAPI, didChangeViewVisibility _: Swift.Bool)
   public func view(_: any FlowplayerSDK.FlowplayerViewAPI, didChangeLifecycle _: FlowplayerSDK.ViewLifecycle)
 }
-@objc @_Concurrency.MainActor(unsafe) public class FlowplayerView : UIKit.UIView {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class FlowplayerView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
@@ -121,6 +130,15 @@ extension FlowplayerSDK.FlowplayerViewDelegate {
   }
 }
 extension FlowplayerSDK.FlowplayerView : FlowplayerSDK.FlowplayerViewAPI {
+  @_Concurrency.MainActor(unsafe) public var bufferState: FlowplayerSDK.PlaybackBufferState {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var dvrWindow: FlowplayerSDK.DVRWindow? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var bufferLoadedPercentage: Swift.Double {
+    get
+  }
   @_Concurrency.MainActor(unsafe) public var quality: FlowplayerSDK.PlayerQuality? {
     get
   }
@@ -233,9 +251,6 @@ extension FlowplayerSDK.FlowplayerView : FlowplayerSDK.FlowplayerViewAPI {
   @_Concurrency.MainActor(unsafe) public var preferredPeakBitRate: Swift.Double? {
     get
   }
-  @_Concurrency.MainActor(unsafe) public var bufferLoadedPercented: Swift.Double {
-    get
-  }
   @_Concurrency.MainActor(unsafe) public func openFullscreen()
   @_Concurrency.MainActor(unsafe) public func closeFullscreen()
   @_Concurrency.MainActor(unsafe) public func load(external media: FlowplayerSDK.MediaExternal)
@@ -301,9 +316,10 @@ extension FlowplayerSDK.OVPAd : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-public struct SDKConfig {
-  public var disableLogging: Swift.Bool
+public struct SDKConfig : Swift.Equatable {
+  public var loggerEnabled: Swift.Bool
   public var loggerLevels: [FlowplayerSDK.LogLevel]
+  public static func == (a: FlowplayerSDK.SDKConfig, b: FlowplayerSDK.SDKConfig) -> Swift.Bool
 }
 public struct AudioTrack : Swift.Encodable, Swift.Equatable {
   public let id: Swift.Int
@@ -524,12 +540,14 @@ public protocol FlowplayerAPI {
   var preferredPeakBitRate: Swift.Double? { get }
   var quality: FlowplayerSDK.PlayerQuality? { get }
   var volume: Swift.Float { get set }
-  var bufferLoadedPercented: Swift.Double { get }
+  var bufferLoadedPercentage: Swift.Double { get }
+  var bufferState: FlowplayerSDK.PlaybackBufferState { get }
   var isMuted: Swift.Bool { get set }
   var isReady: Swift.Bool { get }
   var delegate: (any FlowplayerSDK.FlowplayerDelegate)? { get set }
   var playbackType: FlowplayerSDK.PlaybackType { get }
   var ovpConfig: FlowplayerSDK.OVPConfig? { get }
+  var dvrWindow: FlowplayerSDK.DVRWindow? { get }
   func load(external media: FlowplayerSDK.MediaExternal)
   func load(ovp media: FlowplayerSDK.MediaOVP)
   @discardableResult
@@ -558,6 +576,9 @@ extension Foundation.NSNotification.Name {
   public static let flowplayerDidSelectSubtitleTrack: Foundation.Notification.Name
   public static let flowplayerDidChangeQuality: Foundation.Notification.Name
   public static let flowplayerDidChangeSeekState: Foundation.Notification.Name
+  public static let flowplayerDidChangeBufferState: Foundation.Notification.Name
+  public static let flowplayerDidChangePlaybackType: Foundation.Notification.Name
+  public static let flowplayerDidChangeDVRWindow: Foundation.Notification.Name
 }
 public protocol FlowplayerDelegate : AnyObject {
   func player(_ player: any FlowplayerSDK.FlowplayerAPI, didChangeState state: FlowplayerSDK.PlayerState)
@@ -574,7 +595,10 @@ public protocol FlowplayerDelegate : AnyObject {
   func player(_ player: any FlowplayerSDK.FlowplayerAPI, selectedTrack audio: FlowplayerSDK.AudioTrack)
   func player(_ player: any FlowplayerSDK.FlowplayerAPI, selectedTrack subtitle: FlowplayerSDK.SubtitleTrack)
   func player(_ player: any FlowplayerSDK.FlowplayerAPI, didChangeQuality quality: FlowplayerSDK.PlayerQuality)
-  func player(_ player: any FlowplayerSDK.FlowplayerAPI, didChangeSeek state: FlowplayerSDK.SeekState, to position: Swift.Double)
+  func player(_ player: any FlowplayerSDK.FlowplayerAPI, didChangeSeek state: FlowplayerSDK.PlaybackSeekState, to position: Swift.Double)
+  func player(_ player: any FlowplayerSDK.FlowplayerAPI, didChangeBufferState state: FlowplayerSDK.PlaybackBufferState)
+  func player(_ player: any FlowplayerSDK.FlowplayerAPI, didChangePlaybackType type: FlowplayerSDK.PlaybackType)
+  func player(_ player: any FlowplayerSDK.FlowplayerAPI, didChangeDVRWindow dvrWindow: FlowplayerSDK.DVRWindow)
 }
 extension FlowplayerSDK.FlowplayerDelegate {
   public func player(_: any FlowplayerSDK.FlowplayerAPI, didChangeState _: FlowplayerSDK.PlayerState)
@@ -591,7 +615,10 @@ extension FlowplayerSDK.FlowplayerDelegate {
   public func player(_: any FlowplayerSDK.FlowplayerAPI, selectedTrack _: FlowplayerSDK.AudioTrack)
   public func player(_: any FlowplayerSDK.FlowplayerAPI, selectedTrack _: FlowplayerSDK.SubtitleTrack)
   public func player(_: any FlowplayerSDK.FlowplayerAPI, didChangeQuality _: FlowplayerSDK.PlayerQuality)
-  public func player(_: any FlowplayerSDK.FlowplayerAPI, didChangeSeek _: FlowplayerSDK.SeekState, to _: Swift.Double)
+  public func player(_: any FlowplayerSDK.FlowplayerAPI, didChangeSeek _: FlowplayerSDK.PlaybackSeekState, to _: Swift.Double)
+  public func player(_: any FlowplayerSDK.FlowplayerAPI, didChangeBufferState _: FlowplayerSDK.PlaybackBufferState)
+  public func player(_: any FlowplayerSDK.FlowplayerAPI, didChangePlaybackType _: FlowplayerSDK.PlaybackType)
+  public func player(_: any FlowplayerSDK.FlowplayerAPI, didChangeDVRWindow _: FlowplayerSDK.DVRWindow)
 }
 public struct AdBreak : Swift.Equatable {
   public var adTags: [Swift.String]
@@ -599,13 +626,18 @@ public struct AdBreak : Swift.Equatable {
   public init(adTags: [Swift.String], offset: Swift.Int = -1)
   public static func == (a: FlowplayerSDK.AdBreak, b: FlowplayerSDK.AdBreak) -> Swift.Bool
 }
-public enum PlaybackType : Swift.String {
+public enum PlaybackType : Swift.String, Swift.CaseIterable {
   case file
   case vod
   case live
   case unknown
+  public init?(rawValue: Swift.String?)
   public init?(rawValue: Swift.String)
+  public typealias AllCases = [FlowplayerSDK.PlaybackType]
   public typealias RawValue = Swift.String
+  public static var allCases: [FlowplayerSDK.PlaybackType] {
+    get
+  }
   public var rawValue: Swift.String {
     get
   }
@@ -613,6 +645,16 @@ public enum PlaybackType : Swift.String {
 extension Foundation.NSNotification.Name {
   public static let flowplayerAdDidChangeState: Foundation.Notification.Name
   public static let flowplayerAdDidFail: Foundation.Notification.Name
+}
+public enum PlaybackBufferState {
+  case empty
+  case keepUp
+  case full
+  public static func == (a: FlowplayerSDK.PlaybackBufferState, b: FlowplayerSDK.PlaybackBufferState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public enum PlayerState : Swift.Int, Swift.CaseIterable {
   case idle
@@ -648,8 +690,8 @@ public enum PlaybackState : Swift.Int {
 extension FlowplayerSDK.ViewLifecycle : Swift.Equatable {}
 extension FlowplayerSDK.ViewLifecycle : Swift.Hashable {}
 extension FlowplayerSDK.ViewLifecycle : Swift.RawRepresentable {}
-extension FlowplayerSDK.SeekState : Swift.Equatable {}
-extension FlowplayerSDK.SeekState : Swift.Hashable {}
+extension FlowplayerSDK.PlaybackSeekState : Swift.Equatable {}
+extension FlowplayerSDK.PlaybackSeekState : Swift.Hashable {}
 extension FlowplayerSDK.AdType : Swift.Equatable {}
 extension FlowplayerSDK.AdType : Swift.Hashable {}
 extension FlowplayerSDK.AdType : Swift.RawRepresentable {}
@@ -668,6 +710,8 @@ extension FlowplayerSDK.AdState : Swift.RawRepresentable {}
 extension FlowplayerSDK.PlaybackType : Swift.Equatable {}
 extension FlowplayerSDK.PlaybackType : Swift.Hashable {}
 extension FlowplayerSDK.PlaybackType : Swift.RawRepresentable {}
+extension FlowplayerSDK.PlaybackBufferState : Swift.Equatable {}
+extension FlowplayerSDK.PlaybackBufferState : Swift.Hashable {}
 extension FlowplayerSDK.PlayerState : Swift.Equatable {}
 extension FlowplayerSDK.PlayerState : Swift.Hashable {}
 extension FlowplayerSDK.PlayerState : Swift.RawRepresentable {}

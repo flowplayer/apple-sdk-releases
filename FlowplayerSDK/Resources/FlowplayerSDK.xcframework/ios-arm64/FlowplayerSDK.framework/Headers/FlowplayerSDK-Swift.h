@@ -288,7 +288,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 /// Use Builder to create a config object.
 SWIFT_CLASS("_TtC13FlowplayerSDK14ControlsConfig")
 @interface ControlsConfig : NSObject
-/// Initialises an empty config
+/// Initializes an empty config
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -315,10 +315,10 @@ SWIFT_CLASS("_TtC13FlowplayerSDK14ControlsConfig")
 SWIFT_CLASS("_TtC13FlowplayerSDK14FlowplayerView")
 @interface FlowplayerView : UIView
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;
 @property (nonatomic, getter=isHidden) BOOL hidden;
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 
