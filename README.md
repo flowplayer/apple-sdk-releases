@@ -2,20 +2,17 @@
 
 The Wowza Flowplayer Apple SDK provides a framework to integrate video playback and advertisement capabilities into your iOS and tvOS applications. With this SDK, you can take advantage of a comprehensive set of features and functionalities that enhance the video playback experience for your users.
 
-For more, get started with our official Apple SDK documentation:
-
-- [Wowza Flowplayer iOS SDK](https://developer.wowza.com/docs/wowza-flowplayer/sdks/apple/ios/getting-started/#about-wowza-flowplayer-ios-sdk) documentation
-- [Wowza Flowplayer tvOS SDK](https://developer.wowza.com/docs/wowza-flowplayer/sdks/apple/tvos/getting-started/#about-wowza-flowplayer-tvos-sdk) documentation
+For more, get started with our official [Wowza Flowplayer Apple SDK](https://developer.wowza.com/docs/wowza-flowplayer/apple-sdk/about-the-apple-sdk/) documentation.
 
 ## Before you start
 
-Before you start with the latest version of the Wowza Flowplayer iOS and tvOS SDKs, check the system requirements, dependencies, and required software in the following table.
+Before you start with the latest version of the Wowza Flowplayer Apple SDK, check the system requirements, dependencies, and required software in the following table.
 
 | Requirement | Version information |
 | :---- | :---- |
 | **Minimum system requirements** | Swift 5.7 <br/> macOS 13.0 |
 | **Dependencies and versions** | Google IMA SDK iOS 3.8.5 (exact version) <br/> Google IMA SDK tvOS 4.19.1 (exact version) |
-| **Software requirements** | [Xcode 14.2](https://developer.apple.com/download/all/?q=xcode%2014.2) (includes Swift 5.7) <br /> [Git](https://git-scm.com/downloads) <br/> [Flowplayer OVP](https://app.flowplayer.com/) <br /> [Wowza Video](https://auth.wowza.com/login?onsuccess=https://video.wowza.com/en/manage) |
+| **Software requirements** | [Xcode 14.2](https://developer.apple.com/download/all/?q=xcode%2014.2) (includes Swift 5.7) <br /> [Git](https://git-scm.com/downloads) <br/> [Flowplayer Online Video Platform (OVP)](https://app.flowplayer.com/) <br /> [Wowza Video](https://auth.wowza.com/login?onsuccess=https://video.wowza.com/en/manage) |
 
 ## Add the SDK to your project
 
@@ -41,7 +38,7 @@ You can integrate the Wowza Flowplayer Apple SDK from Xcode using Swift Package 
 
 ### CocoaPods
 
-You can also use the [CocoaPods](https://guides.cocoapods.org/) dependency manager to integrate the SDK into your projects. To use this approach, follow these steps.
+You can also use the [CocoaPods](https://cocoapods.org/pods/FlowplayerSDK) dependency manager to integrate the SDK into your projects. To use this approach, follow these steps.
 
 1. Add the **FlowplayerSDK** framework to your Podfile.
 
@@ -77,13 +74,13 @@ You can also use the [CocoaPods](https://guides.cocoapods.org/) dependency manag
 
 ### Manual installation
 
-If you prefer a more manual approach to add the SDK to your projects, see [Manual installation](https://developer.wowza.com/docs/wowza-flowplayer/sdks/apple/ios/getting-started/#manual-installation).
+If you prefer a more manual approach to add the SDK to your projects, see [Manual installation](https://developer.wowza.com/docs/wowza-flowplayer/apple-sdk/import-the-apple-sdk/#manual-installation).
 
 ## Running examples
 
 This repository includes example projects for [iOS](https://github.com/flowplayer/apple-sdk-releases/tree/main/iOS%20Example) and [tvOS](https://github.com/flowplayer/apple-sdk-releases/tree/main/tvOS%20Example). You can explore these examples and integrate them into your own work.
 
-To run the example apps in this repository, you need an access token from Wowza Flowplayer or Wowza Video. This token allows the player to display content in your iOS or tvOS application. You can update your target's **Info.plist** file  with this token. You can also accomplish the same goal by setting the [Flowplayer.current.accessToken](https://github.com/flowplayer/apple-sdk-releases/blob/main/iOS%20Example/Sources/App/AppDelegate.swift) property in the example app configurations.
+To run the example apps in this repository, you need an access token from Wowza Flowplayer or Wowza Video. This token allows the player to display content in your iOS or tvOS application. You can update your target's **Info.plist** file  with this token. You can also accomplish the same goal by setting the [Flowplayer.current.accessToken](https://github.com/flowplayer/apple-sdk-releases/blob/main/iOS%20Example/Sources/App/AppDelegate.swift) property in the example app configurations. For more, see [Set an access token](https://developer.wowza.com/docs/wowza-flowplayer/apple-sdk/configure-your-application/#set-an-access-token).
 
 ## Contributing
 
