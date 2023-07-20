@@ -12,7 +12,7 @@ Before you start with the latest version of the Wowza Flowplayer Apple SDK, chec
 | :---- | :---- |
 | **Minimum system requirements** | Swift 5.7 <br/> macOS 13.0 |
 | **Dependencies and versions** | Google IMA SDK iOS 3.8.5 (exact version) <br/> Google IMA SDK tvOS 4.19.1 (exact version) |
-| **Software requirements** | [Xcode 14](https://developer.apple.com/download/all/?q=xcode%2014.2) (includes Swift 5.7) <br /> [Git](https://git-scm.com/downloads) <br/> [Flowplayer Online Video Platform (OVP)](https://app.flowplayer.com/) <br /> [Wowza Video](https://auth.wowza.com/login?onsuccess=https://video.wowza.com/en/manage) |
+| **Software requirements** | [Xcode 14](https://developer.apple.com/download/all/?q=xcode%2014.2) (includes Swift 5.7) <br /> [Git](https://git-scm.com/downloads) <br/> [Flowplayer Online Video Platform (OVP)](https://app.flowplayer.com/) |
 
 ## Add the SDK to your project
 
