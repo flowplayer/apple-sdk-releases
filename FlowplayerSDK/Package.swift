@@ -2,6 +2,8 @@
 
 import PackageDescription
 
+let version = "<version>"
+
 let package = Package(
   name: "FlowplayerSDK",
   platforms: [
@@ -17,7 +19,8 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "FlowplayerSDK",
-      path: "./Resources/FlowplayerSDK.xcframework"
+      url: "https://example.com/some/url/\(version)/FlowplayerSDK.zip",
+      checksum: "<checksum>"
     ),
   ]
 )
