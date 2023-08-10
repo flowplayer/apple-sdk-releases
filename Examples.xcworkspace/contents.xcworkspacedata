@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MIGRATION.md">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
       location = "group:FlowplayerSDK">
    </FileRef>
    <FileRef
@@ -10,4 +16,18 @@
    <FileRef
       location = "group:iOS Example/iOS Example.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Media"
+      name = "Media">
+      <FileRef
+         location = "group:BigBackBunny.mp4">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Scripts"
+      name = "Scripts">
+      <FileRef
+         location = "group:UpdatePackageManifest.bash">
+      </FileRef>
+   </Group>
 </Workspace>
