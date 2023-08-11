@@ -12,7 +12,7 @@ BINARY_NAME="FlowplayerSDK.zip"
 NEW_VERSION=$1
 
 # Download new zip file
-curl -L -O https://example.com/${NEW_VERSION}/${BINARY_NAME} --silent
+curl -L -O https://github.com/flowplayer/apple-sdk-releases/releases/download/${NEW_VERSION}/${BINARY_NAME} --silent
 echo "🗃️ Downloaded $BINARY_NAME"
 
 # Calculate new checksum
