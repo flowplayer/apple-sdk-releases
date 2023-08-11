@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Update Package.swift with release ref
-      run: ./Scripts/UpdatePackageManifest.bash ${{ github.ref }}
+      run: ./Scripts/UpdatePackageManifest.bash ${{ github.ref_name }}
       if: github.event_name == 'release'
     - name: Update Package.swift with new version
       run: ./Scripts/UpdatePackageManifest.bash ${{ github.event.inputs.newVersion }}
@@ -25,4 +25,5 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
+        title: '[Release] Confirm New Version'
         base: main
