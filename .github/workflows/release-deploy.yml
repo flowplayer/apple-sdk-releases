@@ -1,0 +1,21 @@
+name: Release Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      newVersion:
+        description: 'New Version'
+        default: '4.0.0'
+        required: true
+        
+jobs:
+  updateBinaryTarget:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Update Package.swift
+      run: |
+        ./Scripts/UpdatePackageManifest.bash ${{ github.event.inputs.newVersion }}
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
