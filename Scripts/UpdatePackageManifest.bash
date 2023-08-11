@@ -16,7 +16,9 @@ curl -L -O https://github.com/flowplayer/apple-sdk-releases/releases/download/${
 echo "🗃️ Downloaded $BINARY_NAME"
 
 # Calculate new checksum
+touch Package.swift # need for swift package compute-checksum to work
 NEW_CHECKSUM=$(swift package compute-checksum $BINARY_NAME)
+rm Package.swift # delete it as it is not needed anymore
 echo "🔐 New checksum is: $NEW_CHECKSUM"
 
 # Replace version information in package manifest
