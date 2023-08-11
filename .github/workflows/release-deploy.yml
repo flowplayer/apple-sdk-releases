@@ -16,10 +16,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Update Package.swift
-    - run: ./Scripts/UpdatePackageManifest.bash ${{ github.ref }}
+    - name: Update Package.swift with release ref
+      run: ./Scripts/UpdatePackageManifest.bash ${{ github.ref }}
       if: github.event_name == "release"
-    - run: ./Scripts/UpdatePackageManifest.bash ${{ event.inputs.newVersion }}
+    - name: Update Package.swift with new version
+      run: ./Scripts/UpdatePackageManifest.bash ${{ github.event.inputs.newVersion }}
       if: github.event_name == "workflow_dispatch"
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
