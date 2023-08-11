@@ -16,10 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Get current tag
-      run: echo "GIT_TAG=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
+    - name: Extract Tag Name
+      id: tag_name
+      run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+      if: github.event_name == 'release'
     - name: Update Package.swift with release ref
-      run: ./Scripts/UpdatePackageManifest.bash ${{ GIT_TAG }}
+      run: ./Scripts/UpdatePackageManifest.bash $TAG_NAME
       if: github.event_name == 'release'
     - name: Update Package.swift with new version
       run: ./Scripts/UpdatePackageManifest.bash ${{ github.event.inputs.newVersion }}
