@@ -20,14 +20,14 @@ NEW_CHECKSUM=$(swift package compute-checksum $BINARY_NAME)
 echo "🔐 New checksum is: $NEW_CHECKSUM"
 
 # Replace version information in package manifest
-sed -E -i '' 's/let version = ".+"/let version = "'$NEW_VERSION\"/ Package.swift
+sed -E -i '' 's/let version = ".+"/let version = "'$NEW_VERSION\"/ FlowplayerSDK/Package.swift
 
 # Replace checksum information in package manifest
-sed -E -i '' 's/checksum: ".+"/checksum: "'$NEW_CHECKSUM\"/ Package.swift
+sed -E -i '' 's/checksum: ".+"/checksum: "'$NEW_CHECKSUM\"/ FlowplayerSDK/Package.swift
 
 # print out package manifes for convenience reasons
 echo "📜 New Package Manifest is:"
-cat Package.swift
+cat FlowplayerSDK/Package.swift
 
 # delete downloaded zip file
 rm $BINARY_NAME
