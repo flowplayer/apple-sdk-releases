@@ -14,7 +14,6 @@
 		7967CB0E2A39D7CB00AAA66F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7967CB0C2A39D7CB00AAA66F /* LaunchScreen.storyboard */; };
 		7967CB192A39E00100AAA66F /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967CB182A39E00100AAA66F /* Video.swift */; };
 		7967CB1B2A39E0FA00AAA66F /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967CB1A2A39E0FA00AAA66F /* PlayController.swift */; };
-		79956F1D2A39E60E00AC085D /* BigBackBunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 79956F1C2A39E60E00AC085D /* BigBackBunny.mp4 */; };
 		79FF0BBF2A4DBA6100EBBB99 /* FlowplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BBE2A4DBA6100EBBB99 /* FlowplayerSDK */; };
 		79FF0BC12A4DBA6100EBBB99 /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BC02A4DBA6100EBBB99 /* GoogleInteractiveMediaAds */; };
 /* End PBXBuildFile section */
@@ -28,7 +27,6 @@
 		7967CB0D2A39D7CB00AAA66F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7967CB182A39E00100AAA66F /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		7967CB1A2A39E0FA00AAA66F /* PlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayController.swift; sourceTree = "<group>"; };
-		79956F1C2A39E60E00AC085D /* BigBackBunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = BigBackBunny.mp4; path = ../Media/BigBackBunny.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +45,6 @@
 		7967CAF72A39D7CB00AAA66F = {
 			isa = PBXGroup;
 			children = (
-				79956F1B2A39E5FB00AC085D /* Media */,
 				7967CB012A39D7CB00AAA66F /* Products */,
 				7967CB022A39D7CB00AAA66F /* Sources */,
 			);
@@ -105,14 +102,6 @@
 				7967CB182A39E00100AAA66F /* Video.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		79956F1B2A39E5FB00AC085D /* Media */ = {
-			isa = PBXGroup;
-			children = (
-				79956F1C2A39E60E00AC085D /* BigBackBunny.mp4 */,
-			);
-			name = Media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,7 +172,6 @@
 			files = (
 				7967CB0E2A39D7CB00AAA66F /* LaunchScreen.storyboard in Resources */,
 				7967CB0B2A39D7CB00AAA66F /* Assets.xcassets in Resources */,
-				79956F1D2A39E60E00AC085D /* BigBackBunny.mp4 in Resources */,
 				7967CB092A39D7CB00AAA66F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

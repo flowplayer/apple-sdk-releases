@@ -15,7 +15,6 @@
 		797F80132A38E852008DADC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F80092A38E852008DADC5 /* ViewController.swift */; };
 		797F80142A38E852008DADC5 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F800A2A38E852008DADC5 /* PlayController.swift */; };
 		797F80152A38E852008DADC5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F800C2A38E852008DADC5 /* Video.swift */; };
-		79956F1F2A39E61D00AC085D /* BigBackBunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 79956F1E2A39E61D00AC085D /* BigBackBunny.mp4 */; };
 		79FF0BBD2A4DBA5400EBBB99 /* FlowplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BBC2A4DBA5400EBBB99 /* FlowplayerSDK */; };
 		79FF0BC42A4DBDD500EBBB99 /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BC32A4DBDD500EBBB99 /* GoogleInteractiveMediaAds */; };
 /* End PBXBuildFile section */
@@ -30,7 +29,6 @@
 		797F800A2A38E852008DADC5 /* PlayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayController.swift; sourceTree = "<group>"; };
 		797F800C2A38E852008DADC5 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		797F800D2A38E852008DADC5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79956F1E2A39E61D00AC085D /* BigBackBunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = BigBackBunny.mp4; path = ../Media/BigBackBunny.mp4; sourceTree = "<group>"; };
 		79A7718B2A28B48900408C72 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,18 +93,9 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		79956F1A2A39E5F100AC085D /* Media */ = {
-			isa = PBXGroup;
-			children = (
-				79956F1E2A39E61D00AC085D /* BigBackBunny.mp4 */,
-			);
-			name = Media;
-			sourceTree = "<group>";
-		};
 		79A771822A28B48900408C72 = {
 			isa = PBXGroup;
 			children = (
-				79956F1A2A39E5F100AC085D /* Media */,
 				79A7718C2A28B48900408C72 /* Products */,
 				797F7FFE2A38E852008DADC5 /* Sources */,
 			);
@@ -188,7 +177,6 @@
 			files = (
 				797F80102A38E852008DADC5 /* LaunchScreen.storyboard in Resources */,
 				797F80122A38E852008DADC5 /* Assets.xcassets in Resources */,
-				79956F1F2A39E61D00AC085D /* BigBackBunny.mp4 in Resources */,
 				797F80112A38E852008DADC5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
