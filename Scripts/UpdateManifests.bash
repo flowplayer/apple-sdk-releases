@@ -15,6 +15,7 @@ NEW_VERSION=$1
 curl -L -O https://github.com/flowplayer/apple-sdk-releases/releases/download/${NEW_VERSION}/${BINARY_NAME} --silent
 echo "🗃️ Downloaded $BINARY_NAME"
 
+echo "Updaing Package.swift..."
 # Calculate new checksum
 touch Package.swift # need for swift package compute-checksum to work
 NEW_CHECKSUM=$(swift package compute-checksum $BINARY_NAME)
@@ -30,6 +31,9 @@ sed -E -i '' 's/checksum: ".+"/checksum: "'$NEW_CHECKSUM\"/ FlowplayerSDK/Packag
 # print out package manifes for convenience reasons
 echo "📜 New Package Manifest is:"
 cat FlowplayerSDK/Package.swift
+
+echo "Updaing FlowplayerSDK.podspec..."
+sed -E -i '' 's/VERSION = ".+"/VERSION = "'$NEW_VERSION\"/ FlowplayerSDK.podspec
 
 # delete downloaded zip file
 rm $BINARY_NAME
