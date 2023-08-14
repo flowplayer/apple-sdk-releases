@@ -23,8 +23,8 @@ jobs:
     - name: Update Package.swift with release ref
       run: ./Scripts/UpdatePackageManifest.bash $TAG_NAME
       if: github.event_name == 'release'
-    - name: Update Package.swift with new version
-      run: ./Scripts/UpdatePackageManifest.bash ${{ github.event.inputs.newVersion }}
+    - name: Update SDK Manifests with new version
+      run: ./Scripts/UpdateManifests.bash ${{ github.event.inputs.newVersion }}
       if: github.event_name == 'workflow_dispatch'
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
