@@ -1,6 +1,6 @@
 require 'json'
 
-VERSION = "<version>"
+VERSION = "v4.0.0-rc"
 SOURCE_URL = "https://github.com/flowplayer/apple-sdk-releases/releases/download/#{version}/FlowplayerSDK.zip"
 
 Pod::Spec.new do |spec|
