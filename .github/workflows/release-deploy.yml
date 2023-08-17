@@ -21,7 +21,7 @@ jobs:
       run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       if: github.event_name == 'release'
     - name: Update Package.swift with release ref
-      run: ./Scripts/UpdatePackageManifest.bash $TAG_NAME
+      run: ./Scripts/UpdateManifests.bash $TAG_NAME
       if: github.event_name == 'release'
     - name: Update SDK Manifests with new version
       run: ./Scripts/UpdateManifests.bash ${{ github.event.inputs.newVersion }}
