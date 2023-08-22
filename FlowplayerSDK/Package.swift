@@ -2,7 +2,7 @@
 
 import PackageDescription
 
-let version = "4.0.0-rc"
+let version = "4.0.0-rc.1"
 
 let package = Package(
   name: "FlowplayerSDK",
