@@ -17,16 +17,14 @@ echo "🗃️ Downloaded $BINARY_NAME"
 
 echo "Updaing Package.swift..."
 # Calculate new checksum
-touch Package.swift # need for swift package compute-checksum to work
-NEW_CHECKSUM=$(shasum -a 256 $BINARY_NAME)
-rm Package.swift # delete it as it is not needed anymore
+NEW_CHECKSUM=$(shasum -a 256 $BINARY_NAME | awk '{ print $1 }')
 echo "🔐 New checksum is: $NEW_CHECKSUM"
 
 # Replace version information in package manifest
 sed -E -i '' 's/let version = ".+"/let version = "'$NEW_VERSION\"/ FlowplayerSDK/Package.swift
 
 # Replace checksum information in package manifest
-sed -E -i '' 's/checksum: ".+"/checksum: "'$NEW_CHECKSUM\"/ FlowplayerSDK/Package.swift
+sed -i -E "s/checksum: \".*\"/checksum: \"$NEW_CHECKSUM\"/" FlowplayerSDK/Package.swift
 
 # print out package manifes for convenience reasons
 echo "📜 New Package Manifest is:"
