@@ -15,6 +15,7 @@
 		797F80132A38E852008DADC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F80092A38E852008DADC5 /* ViewController.swift */; };
 		797F80142A38E852008DADC5 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F800A2A38E852008DADC5 /* PlayController.swift */; };
 		797F80152A38E852008DADC5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F800C2A38E852008DADC5 /* Video.swift */; };
+		79C9B6802AA0AB2D00B194B9 /* FlowplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 79C9B67F2AA0AB2D00B194B9 /* FlowplayerSDK */; };
 		79CFB7EA2A8E568400AA8F44 /* BigBackBunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 79CFB7E92A8E568400AA8F44 /* BigBackBunny.mp4 */; };
 		79FF0BC42A4DBDD500EBBB99 /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BC32A4DBDD500EBBB99 /* GoogleInteractiveMediaAds */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C9B6802AA0AB2D00B194B9 /* FlowplayerSDK in Frameworks */,
 				79FF0BC42A4DBDD500EBBB99 /* GoogleInteractiveMediaAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +138,7 @@
 			name = "iOS Example";
 			packageProductDependencies = (
 				79FF0BC32A4DBDD500EBBB99 /* GoogleInteractiveMediaAds */,
+				79C9B67F2AA0AB2D00B194B9 /* FlowplayerSDK */,
 			);
 			productName = "iOS Example (UIKit)";
 			productReference = 79A7718B2A28B48900408C72 /* iOS Example.app */;
@@ -168,6 +171,7 @@
 			mainGroup = 79A771822A28B48900408C72;
 			packageReferences = (
 				79FF0BC22A4DBDD500EBBB99 /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */,
+				79C9B67E2AA0AB2D00B194B9 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */,
 			);
 			productRefGroup = 79A7718C2A28B48900408C72 /* Products */;
 			projectDirPath = "";
@@ -429,6 +433,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		79C9B67E2AA0AB2D00B194B9 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:flowplayer/apple-sdk-releases.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		79FF0BC22A4DBDD500EBBB99 /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rashadatjou/swift-google-ima-spm";
@@ -440,6 +452,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		79C9B67F2AA0AB2D00B194B9 /* FlowplayerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C9B67E2AA0AB2D00B194B9 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */;
+			productName = FlowplayerSDK;
+		};
 		79FF0BC32A4DBDD500EBBB99 /* GoogleInteractiveMediaAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 79FF0BC22A4DBDD500EBBB99 /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */;

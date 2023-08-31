@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "apple-sdk-releases",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:flowplayer/apple-sdk-releases.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "01742f4d8ea9a4b5efb19732ee48f71f0e86a579"
+      }
+    },
+    {
       "identity" : "swift-google-ima-spm",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rashadatjou/swift-google-ima-spm",
