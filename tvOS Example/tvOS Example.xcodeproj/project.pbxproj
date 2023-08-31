@@ -15,7 +15,6 @@
 		7967CB192A39E00100AAA66F /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967CB182A39E00100AAA66F /* Video.swift */; };
 		7967CB1B2A39E0FA00AAA66F /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967CB1A2A39E0FA00AAA66F /* PlayController.swift */; };
 		79CFB7EE2A8E56FE00AA8F44 /* BigBackBunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 79CFB7ED2A8E56A200AA8F44 /* BigBackBunny.mp4 */; };
-		79FF0BBF2A4DBA6100EBBB99 /* FlowplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BBE2A4DBA6100EBBB99 /* FlowplayerSDK */; };
 		79FF0BC12A4DBA6100EBBB99 /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BC02A4DBA6100EBBB99 /* GoogleInteractiveMediaAds */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +36,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FF0BC12A4DBA6100EBBB99 /* GoogleInteractiveMediaAds in Frameworks */,
-				79FF0BBF2A4DBA6100EBBB99 /* FlowplayerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +130,6 @@
 			);
 			name = "tvOS Example";
 			packageProductDependencies = (
-				79FF0BBE2A4DBA6100EBBB99 /* FlowplayerSDK */,
 				79FF0BC02A4DBA6100EBBB99 /* GoogleInteractiveMediaAds */,
 			);
 			productName = "tvOS Example";
@@ -421,10 +418,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		79FF0BBE2A4DBA6100EBBB99 /* FlowplayerSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FlowplayerSDK;
-		};
 		79FF0BC02A4DBA6100EBBB99 /* GoogleInteractiveMediaAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7967CB242A39E1EB00AAA66F /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */;

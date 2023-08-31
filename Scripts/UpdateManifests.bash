@@ -21,14 +21,14 @@ NEW_CHECKSUM=$(shasum -a 256 $BINARY_NAME | awk '{ print $1 }')
 echo "🔐 New checksum is: $NEW_CHECKSUM"
 
 # Replace version information in package manifest
-sed -E -i '' 's/let version = ".+"/let version = "'$NEW_VERSION\"/ FlowplayerSDK/Package.swift
+sed -E -i '' 's/let version = ".+"/let version = "'$NEW_VERSION\"/ Package.swift
 
 # Replace checksum information in package manifest
-sed -i -E "s/checksum: \".*\"/checksum: \"$NEW_CHECKSUM\"/" FlowplayerSDK/Package.swift
+sed -i -E "s/checksum: \".*\"/checksum: \"$NEW_CHECKSUM\"/" Package.swift
 
 # print out package manifes for convenience reasons
 echo "📜 New Package Manifest is:"
-cat FlowplayerSDK/Package.swift
+cat Package.swift
 
 echo "Updaing FlowplayerSDK.podspec..."
 sed -E -i '' 's/VERSION = ".+"/VERSION = "'$NEW_VERSION\"/ FlowplayerSDK.podspec

@@ -16,7 +16,6 @@
 		797F80142A38E852008DADC5 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F800A2A38E852008DADC5 /* PlayController.swift */; };
 		797F80152A38E852008DADC5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F800C2A38E852008DADC5 /* Video.swift */; };
 		79CFB7EA2A8E568400AA8F44 /* BigBackBunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 79CFB7E92A8E568400AA8F44 /* BigBackBunny.mp4 */; };
-		79FF0BBD2A4DBA5400EBBB99 /* FlowplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BBC2A4DBA5400EBBB99 /* FlowplayerSDK */; };
 		79FF0BC42A4DBDD500EBBB99 /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BC32A4DBDD500EBBB99 /* GoogleInteractiveMediaAds */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FF0BC42A4DBDD500EBBB99 /* GoogleInteractiveMediaAds in Frameworks */,
-				79FF0BBD2A4DBA5400EBBB99 /* FlowplayerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +135,6 @@
 			);
 			name = "iOS Example";
 			packageProductDependencies = (
-				79FF0BBC2A4DBA5400EBBB99 /* FlowplayerSDK */,
 				79FF0BC32A4DBDD500EBBB99 /* GoogleInteractiveMediaAds */,
 			);
 			productName = "iOS Example (UIKit)";
@@ -443,10 +440,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		79FF0BBC2A4DBA5400EBBB99 /* FlowplayerSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FlowplayerSDK;
-		};
 		79FF0BC32A4DBDD500EBBB99 /* GoogleInteractiveMediaAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 79FF0BC22A4DBDD500EBBB99 /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */;
