@@ -35,3 +35,4 @@ sed -E -i '' 's/VERSION = ".+"/VERSION = "'$NEW_VERSION\"/ FlowplayerSDK.podspec
 
 # delete downloaded zip file
 rm $BINARY_NAME
+rm Package.swift-E # remove generated file
