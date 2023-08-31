@@ -9,7 +9,7 @@ on:
         description: 'New Version'
         default: '4.0.0'
         required: true
-        
+
 jobs:
   updatePackageSwift:
     runs-on: macos-latest
@@ -29,5 +29,6 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
-        title: '[Release] Confirm New Version'
+        title: 'release: ${{github.event.inputs.newVersion}}'
+        branch: 'release/${{github.event.inputs.newVersion}}'
         base: main
