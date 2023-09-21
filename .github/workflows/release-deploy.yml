@@ -30,5 +30,8 @@ jobs:
       uses: peter-evans/create-pull-request@v5
       with:
         title: "merge: ${{github.event.inputs.newVersion}}"
-        branch: "releae/${{github.event.inputs.newVersion}}"
+        branch: "release/${{github.event.inputs.newVersion}}"
+        commit-message: ${{github.event.inputs.newVersion}}
         base: main
+        delete-branch: true
+        
