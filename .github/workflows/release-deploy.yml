@@ -29,6 +29,6 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
-        title: 'release: ${{github.event.inputs.newVersion}}'
-        branch: 'release/${{github.event.inputs.newVersion}}'
+        title: "merge: ${{github.event.inputs.newVersion}}"
+        branch: "releae/${{github.event.inputs.newVersion}}"
         base: main
