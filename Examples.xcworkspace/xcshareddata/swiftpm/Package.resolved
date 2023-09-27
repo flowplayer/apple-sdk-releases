@@ -3,10 +3,10 @@
     {
       "identity" : "apple-sdk-releases",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:flowplayer/apple-sdk-releases.git",
+      "location" : "https://github.com/flowplayer/apple-sdk-releases",
       "state" : {
         "branch" : "main",
-        "revision" : "01742f4d8ea9a4b5efb19732ee48f71f0e86a579"
+        "revision" : "d712b1e33ad402ba53e2a96226c0ac6c1470f053"
       }
     },
     {

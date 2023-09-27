@@ -14,7 +14,7 @@
 		7967CB0E2A39D7CB00AAA66F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7967CB0C2A39D7CB00AAA66F /* LaunchScreen.storyboard */; };
 		7967CB192A39E00100AAA66F /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967CB182A39E00100AAA66F /* Video.swift */; };
 		7967CB1B2A39E0FA00AAA66F /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967CB1A2A39E0FA00AAA66F /* PlayController.swift */; };
-		79C9B6832AA0AB4800B194B9 /* FlowplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 79C9B6822AA0AB4800B194B9 /* FlowplayerSDK */; };
+		798A8F3B2AC42B7E00D5CAD7 /* FlowplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 798A8F3A2AC42B7E00D5CAD7 /* FlowplayerSDK */; };
 		79CFB7EE2A8E56FE00AA8F44 /* BigBackBunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 79CFB7ED2A8E56A200AA8F44 /* BigBackBunny.mp4 */; };
 		79FF0BC12A4DBA6100EBBB99 /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BC02A4DBA6100EBBB99 /* GoogleInteractiveMediaAds */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C9B6832AA0AB4800B194B9 /* FlowplayerSDK in Frameworks */,
+				798A8F3B2AC42B7E00D5CAD7 /* FlowplayerSDK in Frameworks */,
 				79FF0BC12A4DBA6100EBBB99 /* GoogleInteractiveMediaAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +133,7 @@
 			name = "tvOS Example";
 			packageProductDependencies = (
 				79FF0BC02A4DBA6100EBBB99 /* GoogleInteractiveMediaAds */,
-				79C9B6822AA0AB4800B194B9 /* FlowplayerSDK */,
+				798A8F3A2AC42B7E00D5CAD7 /* FlowplayerSDK */,
 			);
 			productName = "tvOS Example";
 			productReference = 7967CB002A39D7CB00AAA66F /* tvOS Example.app */;
@@ -147,7 +147,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = Wowza;
 				TargetAttributes = {
 					7967CAFF2A39D7CB00AAA66F = {
@@ -166,7 +166,7 @@
 			mainGroup = 7967CAF72A39D7CB00AAA66F;
 			packageReferences = (
 				7967CB242A39E1EB00AAA66F /* XCRemoteSwiftPackageReference "swift-google-ima-spm" */,
-				79C9B6812AA0AB4800B194B9 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */,
+				798A8F392AC42B7E00D5CAD7 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */,
 			);
 			productRefGroup = 7967CB012A39D7CB00AAA66F /* Products */;
 			projectDirPath = "";
@@ -261,6 +261,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -281,7 +282,7 @@
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TVOS_DEPLOYMENT_TARGET = 16.4;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -321,6 +322,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -334,7 +336,7 @@
 				SDKROOT = appletvos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 16.4;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -419,9 +421,9 @@
 				minimumVersion = 1.2.0;
 			};
 		};
-		79C9B6812AA0AB4800B194B9 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */ = {
+		798A8F392AC42B7E00D5CAD7 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:flowplayer/apple-sdk-releases.git";
+			repositoryURL = "https://github.com/flowplayer/apple-sdk-releases";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -430,9 +432,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		79C9B6822AA0AB4800B194B9 /* FlowplayerSDK */ = {
+		798A8F3A2AC42B7E00D5CAD7 /* FlowplayerSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 79C9B6812AA0AB4800B194B9 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */;
+			package = 798A8F392AC42B7E00D5CAD7 /* XCRemoteSwiftPackageReference "apple-sdk-releases" */;
 			productName = FlowplayerSDK;
 		};
 		79FF0BC02A4DBA6100EBBB99 /* GoogleInteractiveMediaAds */ = {
