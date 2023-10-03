@@ -30,7 +30,7 @@ sed -i -E "s/checksum: \".*\"/checksum: \"$NEW_CHECKSUM\"/" Package.swift
 echo "📜 New Package Manifest is:"
 cat Package.swift
 
-echo "Updaing FlowplayerSDK.podspec..."
+echo "💊 Updaing FlowplayerSDK.podspec..."
 sed -E -i '' 's/VERSION = ".+"/VERSION = "'$NEW_VERSION\"/ FlowplayerSDK.podspec
 
 # delete downloaded zip file
