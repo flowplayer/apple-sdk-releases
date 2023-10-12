@@ -69,13 +69,14 @@ extension PlayController {
     playerView.delegate = self
 
     let playerConfiguration = ControlsConfig.create()
-    playerConfiguration.setVolumeControl(true)
     playerConfiguration.setMuteControl(true)
     playerConfiguration.setUseDragHandle(true)
     playerConfiguration.enablePlugins(["speed", "asel", "subtitles"])
     playerConfiguration.setCustom(key: "speed.options", value: [0.5, 1, 2, 5])
     playerConfiguration.setCustom(key: "speed.labels", value: ["Slow", "Normal", "Double", "Fast"])
+    
+    let values = playerConfiguration.build()
 
-    playerView.controlsConfig = playerConfiguration.build()
+    playerView.controlsConfig = values
   }
 }

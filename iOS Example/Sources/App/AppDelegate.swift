@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
 
-    Flowplayer.current.accessToken = "<ADD_YOUR_TOKEN>"
+    Flowplayer.current.accessToken = "<ADD-TOKEN>"
     Flowplayer.current.configure()
 
     return true
