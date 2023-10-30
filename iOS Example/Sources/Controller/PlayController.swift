@@ -34,8 +34,7 @@ class PlayController: UIViewController {
   }
 
   deinit {
-    // IMPORTANT: Destroy player on deinit
-    playerView.stop()
+    // IMPORTANT: After version 4.3.0 no need to call `playerView.stop()`
   }
 }
 
