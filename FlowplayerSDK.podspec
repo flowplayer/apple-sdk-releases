@@ -14,6 +14,6 @@ Pod::Spec.new do |spec|
   spec.platforms             = { :ios => "14.0", :tvos => "14.0" }
   spec.swift_version         = "5.0"
   spec.source                = { :http => SOURCE_URL }
-  spec.vendored_frameworks   = 'FlowplayerSDK.xcframework'
+  spec.vendored_frameworks   = "FlowplayerSDK.xcframework"
 
 end
