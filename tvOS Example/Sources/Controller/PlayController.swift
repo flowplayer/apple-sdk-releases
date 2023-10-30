@@ -65,7 +65,6 @@ class PlayController: UIViewController {
 extension PlayController: AVPlayerViewControllerDelegate {
   func playerViewControllerWillBeginDismissalTransition(_ playerViewController: AVPlayerViewController) {
     // Stop flowplayer playback
-    manager.stop()
     dismiss(animated: true)
   }
 }
