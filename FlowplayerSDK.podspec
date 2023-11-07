@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.version               = VERSION
   spec.summary               = "Official Flowplayer SDK designed for the Apple eco-system."
   spec.homepage              = "https://wowza.com"
-  spec.license               = { :type => "Wowza Commercial License", :file => "LICENSE.md" }
+  spec.license               = { :type => "Wowza Commercial License", :file => "LICENSE" }
   spec.author                = "Wowza LLC"
   spec.platforms             = { :ios => "14.0", :tvos => "14.0" }
   spec.swift_version         = "5.0"
