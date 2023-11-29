@@ -16,7 +16,7 @@ class PlayController: UIViewController {
   @IBOutlet var descriptionLabel: UILabel!
 
   // - Props
-  var video: Video?
+  var video: VideoSingle?
 
   // - Lifecycle
   override func viewDidLoad() {

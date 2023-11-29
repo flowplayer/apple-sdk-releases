@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4C-Wr-Mle">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4C-Wr-Mle">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,7 +34,8 @@
                     <navigationItem key="navigationItem" title="Videos" largeTitleDisplayMode="always" id="kWe-dP-Jyb"/>
                     <connections>
                         <outlet property="tableView" destination="Qhw-B9-90y" id="DGZ-Tl-jNT"/>
-                        <segue destination="9Uk-WF-6SS" kind="show" identifier="PlayControllerSegue" id="bn0-gv-n09"/>
+                        <segue destination="9Uk-WF-6SS" kind="show" identifier="SinglePlayerSegue" id="bn0-gv-n09"/>
+                        <segue destination="MIv-hJ-R2o" kind="show" identifier="MultiPlayerSegue" id="ZDc-79-WZW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ttc-Ef-OSf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962.5954198473282" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1952" y="-310"/>
         </scene>
         <!--Videos-->
         <scene sceneID="ZhL-tr-AAB">
@@ -118,6 +119,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="als-ng-E3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
+        </scene>
+        <!--Multi Player Controller-->
+        <scene sceneID="Teh-1R-8HF">
+            <objects>
+                <viewController id="MIv-hJ-R2o" customClass="MultiPlayerController" customModule="iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HAe-Oi-fVX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-AW-STB">
+                                <rect key="frame" x="16" y="168" width="361" height="516"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpV-gP-P6k" customClass="FlowplayerView" customModule="FlowplayerSDK">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="250"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="g5n-Aa-77l"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PgD-Ve-OfB" customClass="FlowplayerView" customModule="FlowplayerSDK">
+                                        <rect key="frame" x="0.0" y="266" width="361" height="250"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="rxB-9m-n1n"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n44-Je-B2B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e5Q-AW-STB" firstAttribute="centerX" secondItem="HAe-Oi-fVX" secondAttribute="centerX" id="Jpm-ei-Iap"/>
+                            <constraint firstItem="e5Q-AW-STB" firstAttribute="leading" secondItem="n44-Je-B2B" secondAttribute="leading" constant="16" id="Wcl-IR-Tgj"/>
+                            <constraint firstItem="e5Q-AW-STB" firstAttribute="centerY" secondItem="HAe-Oi-fVX" secondAttribute="centerY" id="yYf-az-JLO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uaa-Yg-KxM"/>
+                    <connections>
+                        <outlet property="playerOne" destination="OpV-gP-P6k" id="fhV-2o-vYG"/>
+                        <outlet property="playerTwo" destination="PgD-Ve-OfB" id="SMU-Cc-Bw0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCm-dw-8AM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952" y="363"/>
         </scene>
     </scenes>
     <resources>

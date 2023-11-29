@@ -33,12 +33,20 @@ class ViewController: UIViewController {
 // MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return dataSource.count
   }
 
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return dataSource[section].title
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return dataSource[section].list.count
+  }
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let video = dataSource[indexPath.row]
+    let video = dataSource[indexPath.section].list[indexPath.row]
     let cell = UITableViewCell(style: .default, reuseIdentifier: Self.cellId)
     var config = cell.defaultContentConfiguration()
 
@@ -60,8 +68,8 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let selectedItem = dataSource[indexPath.row]
-    let controller = PlayController(video: selectedItem)
+    let selectedItem = dataSource[indexPath.section].list[indexPath.row]
+    let controller = PlayController(video: selectedItem as! VideoSingle)
     present(controller, animated: true)
   }
 }

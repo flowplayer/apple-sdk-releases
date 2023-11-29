@@ -13,7 +13,8 @@ class ViewController: UIViewController {
   // - Private
   // - Constants
   private static let cellId = "MyCellId"
-  private static let segueId = "PlayControllerSegue"
+  private static let segueSinglePlayerId = "SinglePlayerSegue"
+  private static let segueMultiPlayerId = "MultiPlayerSegue"
 
   // - Props
   lazy var dataSource = loadVideoList()
@@ -34,12 +35,20 @@ class ViewController: UIViewController {
 // MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return dataSource.count
   }
 
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return dataSource[section].title
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return dataSource[section].list.count
+  }
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let video = dataSource[indexPath.row]
+    let video = dataSource[indexPath.section].list[indexPath.row]
     let cell = UITableViewCell(style: .default, reuseIdentifier: Self.cellId)
     var config = cell.defaultContentConfiguration()
 
@@ -61,8 +70,16 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let selectedItem = dataSource[indexPath.row]
-    performSegue(withIdentifier: Self.segueId, sender: selectedItem)
+    let selectedItem = dataSource[indexPath.section].list[indexPath.row]
+
+    switch selectedItem {
+    case is VideoSingle:
+      performSegue(withIdentifier: Self.segueSinglePlayerId, sender: selectedItem)
+    case is VideoMulti:
+      performSegue(withIdentifier: Self.segueMultiPlayerId, sender: selectedItem)
+    default:
+      print("No where to go... :(")
+    }
   }
 }
 
@@ -70,10 +87,12 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let playController = segue.destination as? PlayController else {
-      return
+    if let playController = segue.destination as? PlayController {
+      playController.video = sender as? VideoSingle
     }
 
-    playController.video = sender as? Video
+    if let multiPlayerController = segue.destination as? MultiPlayerController {
+      multiPlayerController.video = sender as? VideoMulti
+    }
   }
 }
