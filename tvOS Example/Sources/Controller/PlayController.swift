@@ -17,11 +17,12 @@ class PlayController: UIViewController {
   private let playerController = AVPlayerViewController()
 
   // - Props
-  var video: Video
+  var video: VideoSingle
 
   // - Lifecycle
-  init(video: Video) {
+  init(video: VideoSingle) {
     self.video = video
+    // TODO: Set the ID here
     self.manager = FlowplayerManager(avPlayer: player)
     super.init(nibName: nil, bundle: .main)
   }
