@@ -79,7 +79,7 @@ private func loadLIVEList() -> [VideoSingle] {
       thumbnail: "img.placeholder.gray",
       media: MediaOVP(
         mediaId: "d47d4063-e018-4782-84ca-6491fcfc334d",
-        playerId: "1fbbe1f2-bf45-4636-a130-b58d725dd234"
+        playerId: "08cd7685-d8e9-47fb-a639-05ff650b1b34"
       )
     ),
     VideoSingle(
@@ -94,9 +94,30 @@ private func loadLIVEList() -> [VideoSingle] {
   ]
 }
 
+private func loadMultiList() -> [VideoMulti] {
+  return [
+    VideoMulti(
+      title: "VOD Example with 2 players",
+      description: "VOD Example with 2 players: Two pals, Bob and Alice, battling for the remote! Bob wants sci-fi, Alice insists on rom-coms. Hilarity ensues!",
+      thumbnail: "img.placeholder.gray",
+      list: [
+        MediaOVP(
+          mediaId: "98665882-74a0-41bd-b17f-3adf28d01994",
+          playerId: "08cd7685-d8e9-47fb-a639-05ff650b1b34"
+        ),
+        MediaOVP(
+          mediaId: "950030b2-3d27-4050-9537-373cd1144f37",
+          playerId: "08cd7685-d8e9-47fb-a639-05ff650b1b34"
+        ),
+      ]
+    ),
+  ]
+}
+
 func loadVideoList() -> [VideoSection] {
   return [
     VideoSection(title: "VOD Examples", list: loadVODList()),
     VideoSection(title: "LIVE Examples", list: loadLIVEList()),
+    VideoSection(title: "Multi-Player Examples", list: loadMultiList()),
   ]
 }

@@ -40,8 +40,7 @@ class MultiPlayerController: UIViewController {
 // MARK: - FlowplayerViewDelegate
 
 extension MultiPlayerController: FlowplayerViewDelegate {
-  func view(_ view: FlowplayerViewAPI, didChangeViewVisibility isVisible: Bool) {
-    // TODO: Add 'id' prop check
+  func view(_ player: FlowplayerViewAPI, didChangeViewVisibility isVisible: Bool) {
     print("Flowplayer became visible:", isVisible)
   }
 }
@@ -50,8 +49,16 @@ extension MultiPlayerController: FlowplayerViewDelegate {
 
 extension MultiPlayerController: FlowplayerDelegate {
   func player(_ player: FlowplayerAPI, didChangeState state: PlayerState) {
-    // TODO: Add 'id' prop check
     print("Player did change the state:", state)
+
+    switch player.id {
+    case playerOne.id:
+      print("playerOne state has been changed")
+    case playerTwo.id:
+      print("playerTwo state has been changed")
+    default:
+      break
+    }
   }
 }
 
