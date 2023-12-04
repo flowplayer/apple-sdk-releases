@@ -71,6 +71,9 @@ extension MultiPlayerController {
     playerOne.delegate = self
     playerOne.viewDelegate = self
     playerOne.controlsConfig = setupDefaultControls()
+    // Disable both flags due to multiple players living on the parent
+    playerOne.orientationControlsFullscreen = false
+    playerOne.fullscreenControlsOrientation = false
   }
 
   private func setupPlayerTwo() {
@@ -79,6 +82,9 @@ extension MultiPlayerController {
     playerTwo.delegate = self
     playerTwo.viewDelegate = self
     playerTwo.controlsConfig = setupDefaultControls()
+    // Disable both flags due to multiple players living on the parent
+    playerTwo.orientationControlsFullscreen = false
+    playerTwo.fullscreenControlsOrientation = false
   }
 
   private func setupDefaultControls() -> ControlsConfig {

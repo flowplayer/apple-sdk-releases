@@ -52,6 +52,21 @@ extension PlayController: FlowplayerDelegate {
   func player(_ player: FlowplayerAPI, didChangeState state: PlayerState) {
     print("Player did change the state:", state)
   }
+
+  func player(_ player: FlowplayerAPI, didChangePlaybackState state: PlaybackState) {
+    print("Playback state did change:", state)
+
+    // Current state is .playing and previous state is .background
+    let wasInBackground = player.playbackStateList.prefix(2) == [
+      .playing,
+      .background
+    ]
+
+    /// If player was paused continue playback from the background
+    if wasInBackground && player.state == .pause {
+      player.play()
+    }
+  }
 }
 
 // MARK: - Helpers
@@ -66,6 +81,7 @@ extension PlayController {
     playerView.autoPlay = true
     playerView.viewDelegate = self
     playerView.delegate = self
+    playerView.enableBackgroundPlayback = false
 
     let playerConfiguration = ControlsConfig.create()
     playerConfiguration.setMuteControl(true)
