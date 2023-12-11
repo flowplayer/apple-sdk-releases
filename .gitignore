@@ -94,3 +94,6 @@ SourcePackages/
 
 # Node
 node_modules
+
+# IntelliJ
+.idea

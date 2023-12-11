@@ -1,0 +1,75 @@
+version: 2.1
+orbs:
+  gh: circleci/github-cli@2.0
+
+parameters:
+  sdk-version:
+    type: string
+    default: "4.4.0"
+  changelog:
+    type: string
+    default: ""
+  run-release-workflow:
+    type: boolean
+    default: false
+
+jobs:
+  before-release:
+    parameters:
+      sdk-version:
+        type: string
+    macos:
+      xcode: 15.0.0
+    resource_class: macos.x86.medium.gen2
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "$SSH_WRITE_FINGERPRINT"
+      - run:
+          name: Update SDK Manifests with new version
+          command: ./Scripts/UpdateManifests.bash <<parameters.sdk-version>>
+      - run:
+          name: Commit and Push
+          command: |
+            git config --global user.email "sre@flowplayer.com"
+            git config --global user.name "CircleCI Bot"
+            git add .
+            git commit -m "release: <<parameters.sdk-version>> [skip ci]"
+            git push origin master
+
+  release:
+    parameters:
+      sdk-version:
+        type: string
+      changelog:
+        type: string
+    macos:
+      xcode: 15.0.0
+    resource_class: macos.x86.medium.gen2
+    steps:
+      - checkout
+      - gh/install
+      - run:
+          name: Download SDK zip
+          command: |
+            gh release download --repo $PRIVATE_SDK_REPO <<parameters.sdk-version>>
+      - run:
+          name: Create CHANGELOG.md
+          command: |
+            echo "<<parameters.changelog>>" | base64 --decode > CHANGELOG.md
+      - run:
+          name: Publish release
+          command: gh release create <<parameters.sdk-version>> ./FlowplayerSDK.zip ./Documentation.zip -t "v<<parameters.sdk-version>>" -F ./CHANGELOG.md
+
+workflows:
+  release:
+    when: <<pipeline.parameters.run-release-workflow>>
+    jobs:
+      - before-release:
+          sdk-version: <<pipeline.parameters.sdk-version>>
+      - release:
+          sdk-version: <<pipeline.parameters.sdk-version>>
+          changelog: <<pipeline.parameters.changelog>>
+          requires:
+            - before-release
