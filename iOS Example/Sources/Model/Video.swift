@@ -32,6 +32,13 @@ struct VideoMulti: Video {
 struct VideoSection {
   let title: String
   let list: [Video]
+  var type: PlayerType
+
+  enum PlayerType {
+    case single
+    case multiple
+    case nowPlaying
+  }
 }
 
 // MARK: - Static Data
@@ -94,6 +101,23 @@ private func loadLIVEList() -> [VideoSingle] {
   ]
 }
 
+private func loadNowPlayingList() -> [VideoSingle] {
+  [
+    VideoSingle(
+      title: "Local file example",
+      description: "This is a local file filled with valuable information that is essential for your project. Unlock the power of knowledge as you dive into its contents, exploring a treasure trove of insights and data. From meticulously curated research to insightful analysis, this file holds the key to unlocking your success. With every page, you'll discover new perspectives and untapped opportunities that will propel you towards your goals. Embrace the power of this local file and harness its potential to make informed decisions and achieve remarkable outcomes.",
+      thumbnail: "img.placeholder.gray",
+      media: MediaExternal(
+        url: URL(fileURLWithPath:
+          Bundle.main.path(
+            forResource: "BigBackBunny", ofType: "mp4"
+          )!
+        )
+      )
+    ),
+  ]
+}
+
 private func loadMultiList() -> [VideoMulti] {
   return [
     VideoMulti(
@@ -116,8 +140,9 @@ private func loadMultiList() -> [VideoMulti] {
 
 func loadVideoList() -> [VideoSection] {
   return [
-    VideoSection(title: "VOD Examples", list: loadVODList()),
-    VideoSection(title: "LIVE Examples", list: loadLIVEList()),
-    VideoSection(title: "Multi-Player Examples", list: loadMultiList()),
+    VideoSection(title: "VOD Examples", list: loadVODList(), type: .single),
+    VideoSection(title: "LIVE Examples", list: loadLIVEList(), type: .single),
+    VideoSection(title: "Now Playing Example", list: loadNowPlayingList(), type: .nowPlaying),
+    VideoSection(title: "Multi-Player Examples", list: loadMultiList(), type: .multiple),
   ]
 }

@@ -17,6 +17,7 @@
 		797F80132A38E852008DADC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F80092A38E852008DADC5 /* ViewController.swift */; };
 		797F80142A38E852008DADC5 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F800A2A38E852008DADC5 /* PlayController.swift */; };
 		797F80152A38E852008DADC5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F800C2A38E852008DADC5 /* Video.swift */; };
+		79AF94B32B2776DC00B9079B /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF94B22B2776DC00B9079B /* NowPlayingController.swift */; };
 		79CFB7EA2A8E568400AA8F44 /* BigBackBunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 79CFB7E92A8E568400AA8F44 /* BigBackBunny.mp4 */; };
 		79FF0BC42A4DBDD500EBBB99 /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 79FF0BC32A4DBDD500EBBB99 /* GoogleInteractiveMediaAds */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		797F800C2A38E852008DADC5 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		797F800D2A38E852008DADC5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79A7718B2A28B48900408C72 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79AF94B22B2776DC00B9079B /* NowPlayingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingController.swift; sourceTree = "<group>"; };
 		79CFB7E92A8E568400AA8F44 /* BigBackBunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BigBackBunny.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,9 +86,10 @@
 		797F80082A38E852008DADC5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				797F80092A38E852008DADC5 /* ViewController.swift */,
-				797F800A2A38E852008DADC5 /* PlayController.swift */,
 				7910E08C2B17BC12003FD29B /* MultiPlayerController.swift */,
+				79AF94B22B2776DC00B9079B /* NowPlayingController.swift */,
+				797F800A2A38E852008DADC5 /* PlayController.swift */,
+				797F80092A38E852008DADC5 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				797F80132A38E852008DADC5 /* ViewController.swift in Sources */,
 				797F80142A38E852008DADC5 /* PlayController.swift in Sources */,
+				79AF94B32B2776DC00B9079B /* NowPlayingController.swift in Sources */,
 				797F800E2A38E852008DADC5 /* AppDelegate.swift in Sources */,
 				797F800F2A38E852008DADC5 /* SceneDelegate.swift in Sources */,
 				7910E08D2B17BC12003FD29B /* MultiPlayerController.swift in Sources */,

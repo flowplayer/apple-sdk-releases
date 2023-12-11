@@ -36,6 +36,7 @@
                         <outlet property="tableView" destination="Qhw-B9-90y" id="DGZ-Tl-jNT"/>
                         <segue destination="9Uk-WF-6SS" kind="show" identifier="SinglePlayerSegue" id="bn0-gv-n09"/>
                         <segue destination="MIv-hJ-R2o" kind="show" identifier="MultiPlayerSegue" id="ZDc-79-WZW"/>
+                        <segue destination="qNS-aP-TzU" kind="show" identifier="NowPlayingSegue" id="D90-tb-XcN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -175,6 +176,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCm-dw-8AM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952" y="363"/>
+        </scene>
+        <!--Play Controller-->
+        <scene sceneID="yJu-AQ-uhv">
+            <objects>
+                <viewController id="qNS-aP-TzU" customClass="PlayController" customModule="iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KCd-OF-22z">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVt-6d-VeA" customClass="FlowplayerView" customModule="FlowplayerSDK">
+                                <rect key="frame" x="16" y="301" width="361" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Fio-Xd-gFX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kgh-eu-YJC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cVt-6d-VeA" firstAttribute="centerY" secondItem="KCd-OF-22z" secondAttribute="centerY" id="HQe-Vi-x9n"/>
+                            <constraint firstItem="cVt-6d-VeA" firstAttribute="centerX" secondItem="KCd-OF-22z" secondAttribute="centerX" id="Hbo-iE-5AB"/>
+                            <constraint firstItem="cVt-6d-VeA" firstAttribute="leading" secondItem="kgh-eu-YJC" secondAttribute="leading" constant="16" id="tZ8-Y9-UoW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ipp-Aw-rSv"/>
+                    <connections>
+                        <outlet property="playerView" destination="cVt-6d-VeA" id="663-Iz-P3T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6iF-Im-rkr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952" y="-966"/>
         </scene>
     </scenes>
     <resources>

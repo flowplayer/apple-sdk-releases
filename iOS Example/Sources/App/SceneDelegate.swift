@@ -21,7 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 
   func sceneWillEnterForeground(_ scene: UIScene) {
-    //    Uncomment code to enable background playback
+    /**
+     Uncomment code to enable background playback
+     Do not disconnect the AVPlayer instance if you are using MPRemoteCommandCenter
+     */
+    
     //    guard (savedPlayerInstance != nil) else { return }
     //    // Continue Foreground playback if there was a saved player instance
     //    guard let topController = window?.getTopViewController() as? PlayerController else {
@@ -33,7 +37,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 
   func sceneDidEnterBackground(_ scene: UIScene) {
-    //    Uncomment code to enable background playback
+    /**
+     Uncomment code to enable background playback
+     Do not disconnect the AVPlayer instance if you are using MPRemoteCommandCenter
+     */
+
+    //    Do not disconnect the AVPlayer instance if you are using MPRemoteCommandCenter
     //    guard let topController = window?.getTopViewController() as? PlayerController else {
     //      return
     //    }

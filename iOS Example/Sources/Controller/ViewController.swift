@@ -15,6 +15,7 @@ class ViewController: UIViewController {
   private static let cellId = "MyCellId"
   private static let segueSinglePlayerId = "SinglePlayerSegue"
   private static let segueMultiPlayerId = "MultiPlayerSegue"
+  private static let segueNowPlayingId = "NowPlayingSegue"
 
   // - Props
   lazy var dataSource = loadVideoList()
@@ -70,15 +71,16 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let selectedItem = dataSource[indexPath.section].list[indexPath.row]
+    let selectedSection = dataSource[indexPath.section]
+    let selectedItem = selectedSection.list[indexPath.row]
 
-    switch selectedItem {
-    case is VideoSingle:
+    switch selectedSection.type {
+    case .single:
       performSegue(withIdentifier: Self.segueSinglePlayerId, sender: selectedItem)
-    case is VideoMulti:
+    case .multiple:
       performSegue(withIdentifier: Self.segueMultiPlayerId, sender: selectedItem)
-    default:
-      print("No where to go... :(")
+    case .nowPlaying:
+      performSegue(withIdentifier: Self.segueNowPlayingId, sender: selectedItem)
     }
   }
 }
@@ -89,6 +91,10 @@ extension ViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let playController = segue.destination as? PlayController {
       playController.video = sender as? VideoSingle
+    }
+
+    if let nowPlayingController = segue.destination as? NowPlayingController {
+      nowPlayingController.video = sender as? VideoSingle
     }
 
     if let multiPlayerController = segue.destination as? MultiPlayerController {
