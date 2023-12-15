@@ -14,30 +14,6 @@ parameters:
     default: false
 
 jobs:
-  before-release:
-    parameters:
-      sdk-version:
-        type: string
-    macos:
-      xcode: 15.0.0
-    resource_class: macos.x86.medium.gen2
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "$SSH_WRITE_FINGERPRINT"
-      - run:
-          name: Update SDK Manifests with new version
-          command: ./Scripts/UpdateManifests.bash <<parameters.sdk-version>>
-      - run:
-          name: Commit and Push
-          command: |
-            git config --global user.email "sre@flowplayer.com"
-            git config --global user.name "CircleCI Bot"
-            git add .
-            git commit -m "release: <<parameters.sdk-version>> [skip ci]"
-            git push origin master
-
   release:
     parameters:
       sdk-version:
@@ -50,10 +26,25 @@ jobs:
     steps:
       - checkout
       - gh/install
+      - add_ssh_keys
       - run:
-          name: Download SDK zip
+          name: Download SDK zip from private repo
           command: |
             gh release download --repo $PRIVATE_SDK_REPO <<parameters.sdk-version>>
+      - run:
+          name: Calculate new checksum
+          command: echo "CHECKSUM=$(shasum -a 256 FlowplayerSDK.zip | awk '{print $1}')" >> $BASH_ENV
+      - run:
+          name: Update SDK Manifests with new version
+          command: ./Scripts/UpdateManifests.bash <<parameters.sdk-version>> $CHECKSUM
+      - run:
+          name: Commit and Push Package.swift and FlowplayerSDK.podspec
+          command: |
+            git config --global user.email "$SRE_EMAIL"
+            git config --global user.name "CircleCI Bot"
+            git add git add Package.swift FlowplayerSDK.podspec
+            git commit -m "release: <<parameters.sdk-version>> [skip ci]"
+            git push origin main
       - run:
           name: Create CHANGELOG.md
           command: |
@@ -66,10 +57,6 @@ workflows:
   release:
     when: <<pipeline.parameters.run-release-workflow>>
     jobs:
-      - before-release:
-          sdk-version: <<pipeline.parameters.sdk-version>>
       - release:
           sdk-version: <<pipeline.parameters.sdk-version>>
           changelog: <<pipeline.parameters.changelog>>
-          requires:
-            - before-release

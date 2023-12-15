@@ -8,16 +8,11 @@ fi
 
 # Assuming this script is executed from directory which contains Package.Swift
 # take version (e.g. 4.0.0) as argument
-BINARY_NAME="FlowplayerSDK.zip"
+# take checksum as argument
 NEW_VERSION=$1
-
-# Download new zip file
-curl -L -O https://github.com/flowplayer/apple-sdk-releases/releases/download/${NEW_VERSION}/${BINARY_NAME} --silent
-echo "🗃️ Downloaded $BINARY_NAME"
+NEW_CHECKSUM=$2
 
 echo "Updaing Package.swift..."
-# Calculate new checksum
-NEW_CHECKSUM=$(shasum -a 256 $BINARY_NAME | awk '{ print $1 }')
 echo "🔐 New checksum is: $NEW_CHECKSUM"
 
 # Replace version information in package manifest
