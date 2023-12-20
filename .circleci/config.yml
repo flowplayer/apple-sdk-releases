@@ -42,7 +42,7 @@ jobs:
           command: |
             git config --global user.email "$SRE_EMAIL"
             git config --global user.name "CircleCI Bot"
-            git add git add Package.swift FlowplayerSDK.podspec
+            git add Package.swift FlowplayerSDK.podspec
             git commit -m "release: <<parameters.sdk-version>> [skip ci]"
             git push origin main
       - run:
