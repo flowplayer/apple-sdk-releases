@@ -12,7 +12,7 @@ fi
 NEW_VERSION=$1
 NEW_CHECKSUM=$2
 
-echo "Updaing Package.swift..."
+echo "Updating Package.swift..."
 echo "🔐 New checksum is: $NEW_CHECKSUM"
 
 # Replace version information in package manifest
@@ -25,9 +25,8 @@ sed -i -E "s/checksum: \".*\"/checksum: \"$NEW_CHECKSUM\"/" Package.swift
 echo "📜 New Package Manifest is:"
 cat Package.swift
 
-echo "💊 Updaing FlowplayerSDK.podspec..."
+echo "💊 Updating FlowplayerSDK.podspec..."
 sed -E -i '' 's/VERSION = ".+"/VERSION = "'$NEW_VERSION\"/ FlowplayerSDK.podspec
 
 # delete downloaded zip file
-rm $BINARY_NAME
 rm Package.swift-E
