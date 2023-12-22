@@ -78,6 +78,28 @@ private func loadVODList() -> [VideoSingle] {
   ]
 }
 
+private func loadRemoteList() -> [VideoSingle] {
+  return [
+    .init(
+      title: "Remote examples with remote AdSchedule",
+      description: "This is a remote exampel livestream with an custom AdScheduleWaterfall.",
+      thumbnail: "img.placeholder.gray",
+      media: MediaExternal(
+        url: URL(
+          string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
+        )!,
+        adSchedule: AdScheduleWaterfall(
+          preAdBreak: AdBreak(
+            adTags: ["https://pubads.g.doubleclick.net/gampad/ads?iu=/21775744923/external/single_preroll_skippable&sz=640x480&ciu_szs=300x250%2C728x90&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator="]
+          ),
+          midAdBreak: nil,
+          postAdBreak: nil
+        )
+      )
+    ),
+  ]
+}
+
 private func loadLIVEList() -> [VideoSingle] {
   [
     VideoSingle(
@@ -142,6 +164,7 @@ func loadVideoList() -> [VideoSection] {
   return [
     VideoSection(title: "VOD Examples", list: loadVODList(), type: .single),
     VideoSection(title: "LIVE Examples", list: loadLIVEList(), type: .single),
+    VideoSection(title: "Remote Examples", list: loadRemoteList(), type: .single),
     VideoSection(title: "Now Playing Example", list: loadNowPlayingList(), type: .nowPlaying),
     VideoSection(title: "Multi-Player Examples", list: loadMultiList(), type: .multiple),
   ]
