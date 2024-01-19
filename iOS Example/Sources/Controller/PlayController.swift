@@ -69,6 +69,17 @@ extension PlayController: FlowplayerDelegate {
   }
 }
 
+// MARK: - FlowplayerAdDelegate
+
+extension PlayController: FlowplayerAdDelegate {
+  func player(_ player: FlowplayerAPI, didAdFailWith error: AdError, for type: AdType, with metadata: IMAMetadata?) {
+    print("Oh noooo  my ads")
+    print("ad error:", error)
+    print("ad type:", type)
+    print("metadata:", metadata)
+  }
+}
+
 // MARK: - Helpers
 
 extension PlayController {
@@ -89,7 +100,7 @@ extension PlayController {
     playerConfiguration.enablePlugins(["speed", "asel", "subtitles"])
     playerConfiguration.setCustom(key: "speed.options", value: [0.5, 1, 2, 5])
     playerConfiguration.setCustom(key: "speed.labels", value: ["Slow", "Normal", "Double", "Fast"])
-    
+
     let values = playerConfiguration.build()
 
     playerView.controlsConfig = values

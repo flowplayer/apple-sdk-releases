@@ -84,4 +84,11 @@ extension PlayController: FlowplayerAdDelegate {
   func player(_ player: FlowplayerAPI, didChangeAdState state: AdState, for adType: AdType) {
     print(player, "didChangeAdState", state, "for", adType)
   }
+
+  func player(_ player: FlowplayerAPI, didAdFailWith error: AdError, for type: AdType, with metadata: IMAMetadata?) {
+    print("Ads Failed")
+    print("error:", error)
+    print("type:", type)
+    print("metadata:", metadata)
+  }
 }

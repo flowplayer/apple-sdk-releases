@@ -91,7 +91,7 @@ private func loadRemoteList() -> [VideoSingle] {
   return [
     .init(
       title: "Remote examples with remote AdSchedule",
-      description: "This is a remote exampel livestream with an custom AdScheduleWaterfall.",
+      description: "This is a remote example livestream with a custom AdScheduleWaterfall.",
       thumbnail: "img.placeholder.gray",
       media: MediaExternal(
         url: URL(
