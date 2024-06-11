@@ -160,6 +160,65 @@ private func loadMultiList() -> [VideoMulti] {
   ]
 }
 
+private func loadDAIList() -> [VideoSingle] {
+  [
+    .init(
+      title: "DAI VOD + Embed Service Sample",
+      description: "",
+      thumbnail: "img.placeholder.gray",
+      media: MediaOVP(
+        mediaId: "4de036d4-5b95-4df0-9272-1f22aed31fc6",
+        playerId: "75878aa7-f290-4a15-961e-86a146e569c4"
+      )
+    ),
+    .init(
+      title: "DAI VOD Stream Sample",
+      description: "",
+      thumbnail: "img.placeholder.gray",
+      media: MediaDAI(
+        stream: DAIStreamVOD(
+          contentSourceID: "2528370",
+          videoID: "tears-of-steel", // manipulate id to trigger backupStream
+          bookmark: 10, // skip pre-roll
+          backupStream: .init(
+            string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
+          )!
+        )
+      )
+    ),
+    .init(
+      title: "DAI Live stream sample",
+      description: "",
+      thumbnail: "img.placeholder.gray",
+      media: MediaDAI(
+        stream: DAIStreamLive(
+          assetKey: "c-rArva4ShKVIAkNfy6HUQ",
+          backupStream: .init(
+            string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
+          )!
+        )
+      )
+    ),
+    .init(
+      title: "DAI POD Live Stream",
+      description: "",
+      thumbnail: "img.placeholder.gray",
+      media: MediaDAI(
+        stream: DAIStreamPodLive(
+          networkCode: "51636543",
+          streamData: .init(
+            streamURL: .init(string: "https://encodersim.sandbox.google.com/masterPlaylist/9c654d63-5373-4673-8c8d-6d92b66b9d46/master.m3u8?gen-seg-redirect=true&network=51636543&event=google-sample&pids=devrel4628000,devrel896000,devrel3528000,devrel1428000,devrel2628000,devrel1928000&seg-host=dai.google.com"
+            )!
+          ),
+          customAssetKey: "google-sample",
+          apiKey: "",
+          backupStream: .init(string: "http://googleimadev-vh.akamaihd.net/i/big_buck_bunny/bbb-,480p,720p,1080p,.mov.csmil/master.m3u8")!
+        )
+      )
+    ),
+  ]
+}
+
 func loadVideoList() -> [VideoSection] {
   return [
     VideoSection(title: "VOD Examples", list: loadVODList(), type: .single),
@@ -167,5 +226,6 @@ func loadVideoList() -> [VideoSection] {
     VideoSection(title: "Remote Examples", list: loadRemoteList(), type: .single),
     VideoSection(title: "Now Playing Example", list: loadNowPlayingList(), type: .nowPlaying),
     VideoSection(title: "Multi-Player Examples", list: loadMultiList(), type: .multiple),
+    VideoSection(title: "DAI Examples", list: loadDAIList(), type: .single)
   ]
 }
