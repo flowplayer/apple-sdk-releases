@@ -164,7 +164,7 @@ private func loadDAIList() -> [VideoSingle] {
   [
     .init(
       title: "DAI VOD + Embed Service Sample",
-      description: "",
+      description: "This example demonstrates how to load a DAI VOD using either WV 2.0 or OVP UI.",
       thumbnail: "img.placeholder.gray",
       media: MediaOVP(
         mediaId: "4de036d4-5b95-4df0-9272-1f22aed31fc6",
@@ -173,7 +173,7 @@ private func loadDAIList() -> [VideoSingle] {
     ),
     .init(
       title: "DAI VOD Stream Sample",
-      description: "",
+      description: "This is a full-service DAI VOD example using Google's example vidoeID and csID.",
       thumbnail: "img.placeholder.gray",
       media: MediaDAI(
         stream: DAIStreamVOD(
@@ -188,7 +188,7 @@ private func loadDAIList() -> [VideoSingle] {
     ),
     .init(
       title: "DAI Live stream sample",
-      description: "",
+      description: "This is a full-service DAI Live example using Google's example assetKey.",
       thumbnail: "img.placeholder.gray",
       media: MediaDAI(
         stream: DAIStreamLive(
@@ -201,7 +201,7 @@ private func loadDAIList() -> [VideoSingle] {
     ),
     .init(
       title: "DAI POD Live Stream",
-      description: "",
+      description: "This is a DAI POD VOD stream using Google's example network code.",
       thumbnail: "img.placeholder.gray",
       media: MediaDAI(
         stream: DAIStreamPodLive(
