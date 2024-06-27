@@ -106,3 +106,15 @@ extension PlayController {
     playerView.controlsConfig = values
   }
 }
+
+// MARK: - FlowplayerDAIDelegate
+
+extension PlayController: FlowplayerDAIDelegate {
+  func player(_ player: any FlowplayerAPI, didStreamChangeState state: DAIStateStream) {
+    print("DAI Stream changed state:", state)
+  }
+
+  func player(_ player: any FlowplayerAPI, didStreamFailWith error: AdError) {
+    print("DAI Stream failed with:", error)
+  }
+}
