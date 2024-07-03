@@ -20,9 +20,8 @@ jobs:
         type: string
       changelog:
         type: string
-    macos:
-      xcode: 15.0.0
-    resource_class: macos.x86.medium.gen2
+    docker:
+      - image: cimg/base:stable
     steps:
       - checkout
       - gh/install
