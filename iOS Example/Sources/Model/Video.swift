@@ -177,7 +177,7 @@ private func loadDAIList() -> [VideoSingle] {
       thumbnail: "img.placeholder.gray",
       media: MediaDAI(
         stream: DAIStreamVOD(
-          contentSourceID: "2528370",
+          contentSourceID: "2548831",
           videoID: "tears-of-steel", // manipulate id to trigger backupStream
           bookmark: 10, // skip pre-roll
           backupStream: .init(
