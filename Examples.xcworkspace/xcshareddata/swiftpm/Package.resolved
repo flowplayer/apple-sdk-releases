@@ -1,4 +1,5 @@
 {
+  "originHash" : "272f5de0faa87236a13617007b87da37aee16412fddafe32bb76a7c83e31f07b",
   "pins" : [
     {
       "identity" : "apple-sdk-releases",
@@ -6,7 +7,7 @@
       "location" : "https://github.com/flowplayer/apple-sdk-releases",
       "state" : {
         "branch" : "main",
-        "revision" : "d661b2140f6a651fbe56a588b29b52b5754cacb3"
+        "revision" : "19044df87b322fcf81b3371dddc6991dc64bcea8"
       }
     },
     {
@@ -14,10 +15,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rashadatjou/swift-google-ima-spm",
       "state" : {
-        "revision" : "59b85a1b58adb94596d004bde67027f9cfd7e9da",
-        "version" : "1.3.0"
+        "revision" : "e56469cc7d58b8501263fafe31949a415488a8d7",
+        "version" : "1.4.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

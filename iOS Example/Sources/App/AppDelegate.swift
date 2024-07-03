@@ -13,10 +13,8 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
-    // Override point for customization after application launch.
 
-    Flowplayer.current.accessToken = "<ADD_YOUR_TOKEN>"
+    Flowplayer.current.accessToken = "eyJraWQiOiJtb2pTdFFGMXoxcUQiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6NixcImlkXCI6XCJtb2pTdFFGMXoxcURcIn0iLCJpc3MiOiJGbG93cGxheWVyIn0.j8ZR7RcXkXBMEepRpMrPBy91fjgrCi1ukHr0UJKX1bbHxMABaoPHHsZ2e7mS6nxtZlpaEyUSI9Bb8HLJSYBxHw"
     Flowplayer.current.configure()
 
     // Needed to play audio on a physical device
