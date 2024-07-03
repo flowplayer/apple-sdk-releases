@@ -28,5 +28,8 @@ cat Package.swift
 echo "💊 Updating FlowplayerSDK.podspec..."
 sed -E -i '' 's/VERSION = ".+"/VERSION = "'$NEW_VERSION\"/ FlowplayerSDK.podspec
 
-# delete downloaded zip file
-rm Package.swift-E
+# Check if the file exists and delete it if it does
+if [ -f "Package.swift-E" ]; then
+    rm "Package.swift-E"
+fi
+
