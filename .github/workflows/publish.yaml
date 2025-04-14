@@ -16,6 +16,8 @@ jobs:
           -H "Accept: application/vnd.github+json" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
           ${{ github.repository }}/FlowplayerSDK.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Calculate new checksum
         run: |
