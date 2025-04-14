@@ -37,6 +37,6 @@ jobs:
 
   publish-cocoapods:
     runs-on: ubuntu-latest
-    needs: release-manifest
+    needs: publish-manifest
     steps:
       - uses: actions/checkout@v4
