@@ -18,17 +18,17 @@ jobs:
 
       - name: Calculate new checksum
         run: |
-          echo "CHECKSUM=$(shasum -a 256 FlowplayerSDK.zip | awk '{print $1}')" >> $BASH_ENV
+          echo "CHECKSUM=$(shasum -a 256 FlowplayerSDK.zip | awk '{print $1}')" >> $GITHUB_ENV
 
       - name: Make UpdateManifests script executable
         run: chmod +x ./Scripts/UpdateManifests.bash
 
       - name: Update SDK Manifests
-        run: ./Scripts/UpdateManifests.bash ${{ github.ref_name }} $CHECKSUM
+        run: ./Scripts/UpdateManifests.bash ${{ github.ref_name }} ${{ env.CHECKSUM }}
 
       - name: Commit and Push
         run: |
-          git config --global user.email "$SRE_EMAIL"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Bot"
           git add Package.swift FlowplayerSDK.podspec
           git commit -m "release: ${{ github.ref_name }}"
