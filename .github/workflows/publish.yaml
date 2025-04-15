@@ -33,14 +33,14 @@ jobs:
         run: chmod +x ./Scripts/UpdateManifests.bash
 
       - name: Update SDK Manifests
-        run: ./Scripts/UpdateManifests.bash ${{ github.ref_name }} ${{ env.CHECKSUM }}
+        run: ./Scripts/UpdateManifests.bash ${{ inputs.tag }} ${{ env.CHECKSUM }}
 
       - name: Commit and Push
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Bot"
           git add Package.swift FlowplayerSDK.podspec
-          git commit -m "release: ${{ github.ref_name }}"
+          git commit -m "release: v${{ inputs.tag }}"
           git push origin main
 
   publish-cocoapods:
