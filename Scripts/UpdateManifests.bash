@@ -7,29 +7,28 @@ if [ $# -eq 0 ]; then
 fi
 
 # Assuming this script is executed from directory which contains Package.Swift
-# take version (e.g. 4.0.0) as argument
-# take checksum as argument
+# Version (e.g. 4.0.0) as argument
 NEW_VERSION=$1
+# Checksum as argument
 NEW_CHECKSUM=$2
 
+echo "New checksum is: $NEW_CHECKSUM"
+echo "New version is: $NEW_VERSION"
+
+# Update Package.swift
 echo "Updating Package.swift..."
-echo "🔐 New checksum is: $NEW_CHECKSUM"
-
-# Replace version information in package manifest
 sed -E -i '' 's/let version = ".+"/let version = "'$NEW_VERSION\"/ Package.swift
-
-# Replace checksum information in package manifest
 sed -i -E "s/checksum: \".*\"/checksum: \"$NEW_CHECKSUM\"/" Package.swift
-
-# print out package manifes for convenience reasons
-echo "📜 New Package Manifest is:"
+echo "New Package.swift:"
 cat Package.swift
 
-echo "💊 Updating FlowplayerSDK.podspec..."
+# Update CocoaPods
+echo "Updating FlowplayerSDK.podspec"
 sed -E -i '' 's/VERSION = ".+"/VERSION = "'$NEW_VERSION\"/ FlowplayerSDK.podspec
+echo "New FlowplayerSDK.podspec"
+cat FlowplayerSDK.podspec
 
-# Check if the file exists and delete it if it does
+# Remove generated Package.swift-E
 if [ -f "Package.swift-E" ]; then
     rm "Package.swift-E"
 fi
-
