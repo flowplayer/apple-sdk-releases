@@ -18,11 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download release asset from public repo
+      - name: Download release asset from private repo
         run: |
-          gh release download --pattern 'FlowplayerSDK.zip'
+          gh release download --pattern '*.zip' --repo ${{ secrets.PRIVATE_REPO }}
+          ls -al
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
 
       - name: DEBUG
         run: ls -al
