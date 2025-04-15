@@ -1,8 +1,16 @@
 name: Publish
 
 on:
-  release:
-    types: [released]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Git tag associated with the release"
+        required: true
+        type: string
+      changelog:
+        description: "Changelog associated with the release"
+        required: true
+        type: string
 
 jobs:
   publish-manifest:
@@ -10,14 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download release asset from public repo
+      - name: Download release asset from private repo
         run: |
-          gh release download --pattern 'FlowplayerSDK.zip'
+          gh release download --pattern '*.zip' --repo ${{ secrets.PRIVATE_REPO }}
+          ls -al
         env:
-          GH_TOKEN: ${{ github.token }}
-
-      - name: DEBUG
-        run: ls -al
+          GH_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
 
       - name: Calculate new checksum
         run: |
@@ -27,18 +33,42 @@ jobs:
         run: chmod +x ./Scripts/UpdateManifests.bash
 
       - name: Update SDK Manifests
-        run: ./Scripts/UpdateManifests.bash ${{ github.ref_name }} ${{ env.CHECKSUM }}
+        run: ./Scripts/UpdateManifests.bash ${{ inputs.tag }} ${{ env.CHECKSUM }}
 
       - name: Commit and Push
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Bot"
           git add Package.swift FlowplayerSDK.podspec
-          git commit -m "release: ${{ github.ref_name }}"
+          git commit -m "release: v${{ inputs.tag }}"
           git push origin main
+
+      - name: Persist workspace artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts-zip
+          path: |
+            FlowplayerSDK.zip
+            Documentation.zip
+
+  publish_release:
+    runs-on: ubuntu-latest
+    needs: publish-manifest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get persisted artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts-zip
+
+      - name: Publish public release
+        run: gh release create ${{ inputs.tag }} FlowplayerSDK.zip Documentation.zip -t "v${{ inputs.tag }}" --notes ${{ inputs.changelog }}
+        env:
+          GH_TOKEN: ${{ github.token }}
 
   publish-cocoapods:
     runs-on: ubuntu-latest
-    needs: publish-manifest
+    needs: publish_release
     steps:
       - uses: actions/checkout@v4
