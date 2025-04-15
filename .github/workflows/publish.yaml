@@ -63,7 +63,7 @@ jobs:
           name: release-artifacts-zip
 
       - name: Publish public release
-        run: gh release create ${{ inputs.tag }} FlowplayerSDK.zip Documentation.zip -t "v${{ inputs.tag }}" --notes ${{ inputs.changelog }}
+        run: gh release create ${{ inputs.tag }} FlowplayerSDK.zip Documentation.zip -t "v${{ inputs.tag }}" --notes "${{ inputs.changelog }}"
         env:
           GH_TOKEN: ${{ github.token }}
 
