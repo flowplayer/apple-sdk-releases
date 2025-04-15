@@ -1,8 +1,16 @@
 name: Publish
 
 on:
-  release:
-    types: [released]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Git tag associated with the release"
+        required: true
+        type: string
+      changelog:
+        description: "Changelog associated with the release"
+        required: true
+        type: string
 
 jobs:
   publish-manifest:
