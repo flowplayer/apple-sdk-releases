@@ -68,7 +68,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
   publish-cocoapods:
-    runs-on: macOS-latest
+    runs-on: macos-latest
     needs: publish_release
     steps:
       - uses: actions/checkout@v4
