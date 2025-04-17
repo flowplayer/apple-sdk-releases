@@ -7,10 +7,6 @@ on:
         description: "Git tag associated with the release"
         required: true
         type: string
-      changelog:
-        description: "Changelog associated with the release"
-        required: true
-        type: string
 
 jobs:
   publish-manifest:
@@ -20,7 +16,7 @@ jobs:
 
       - name: Download release asset from private repo
         run: |
-          gh release download --pattern '*.zip' --repo ${{ secrets.PRIVATE_REPO }}
+          gh release download --pattern '*.zip' --pattern '*.md' --repo ${{ secrets.PRIVATE_REPO }}
           ls -al
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
@@ -50,6 +46,7 @@ jobs:
           path: |
             FlowplayerSDK.zip
             Documentation.zip
+            Changelog.md
 
   publish_release:
     runs-on: ubuntu-latest
@@ -63,7 +60,7 @@ jobs:
           name: release-artifacts-zip
 
       - name: Publish public release
-        run: gh release create ${{ inputs.tag }} FlowplayerSDK.zip Documentation.zip -t "v${{ inputs.tag }}" --notes "${{ inputs.changelog }}"
+        run: gh release create ${{ inputs.tag }} FlowplayerSDK.zip Documentation.zip -t "v${{ inputs.tag }}" --notes-file Changelog.md
         env:
           GH_TOKEN: ${{ github.token }}
 
