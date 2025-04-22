@@ -69,6 +69,8 @@ jobs:
     needs: publish_release
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
       - name: Publish to CocoaPods
         run: pod trunk push FlowplayerSDK.podspec
         env:
