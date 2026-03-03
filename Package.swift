@@ -2,7 +2,7 @@
 
 import PackageDescription
 
-let version = "4.8.2-rc.0"
+let version = "4.8.2"
 
 let package = Package(
   name: "FlowplayerSDK",
@@ -20,7 +20,7 @@ let package = Package(
     .binaryTarget(
       name: "FlowplayerSDK",
       url: "https://github.com/flowplayer/apple-sdk-releases/releases/download/\(version)/FlowplayerSDK.zip",
-      checksum: "b5a8feef6b64627f57a0f33d76a5785a9a13fdb93a7fa9d946bef96598948df9"
+      checksum: "bfc90df13936b528ed1fa16704c72bc2de78d83e072aa57ae67cdc4fa5a3e49d"
     ),
   ]
 )
